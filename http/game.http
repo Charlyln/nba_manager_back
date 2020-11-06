@@ -1,0 +1,18 @@
+GET http://localhost:8080/games/d8a966ab-91fa-4678-ab7a-fbd9c7911e53
+
+###
+POST http://localhost:8080/dataCreation/games/520d23a7-a170-47ec-8b73-4ef1eb2bf39
+Content-Type: application/json
+    
+###
+POST http://localhost:8080/seasons HTTP/1.1
+Content-Type: application/json
+
+{
+    "UserUuid" : "2c5450c8-ba5b-492a-9835-d9c985c8e24d"
+
+}
+
+###
+DELETE https://mychatappmessenger.herokuapp.com/players/7c5a812e-d265-409c-b922-4bf9b50fd9cc HTTP/1.1
+

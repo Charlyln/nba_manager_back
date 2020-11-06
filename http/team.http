@@ -1,12 +1,14 @@
-GET http://localhost:8080/teams/
+GET http://localhost:8080/teams/myteam/stats/7bbb015a-7468-4143-a0f7-a4673c6aea47
+
 ###
-POST http://localhost:8080/teams/ HTTP/1.1
+POST http://localhost:8080/teams HTTP/1.1
 Content-Type: application/json
 
 {
-    "name" : "My team",
-    "UserUuid": "e2321618-89a1-43cd-bf59-81813739d983"
-
+    "choice" : true,
+ "name": "Visitors",
+  "logo": "Sequelize.STRING",
+  "choice": "Sequelize.BOOLEAN"
 
 }
 ###

@@ -1,0 +1,27 @@
+GET http://localhost:8080/visitors
+
+###
+POST http://localhost:8080/visitors HTTP/1.1
+Content-Type: application/json
+
+{
+ "name": "Visitors",
+  "logo": "Sequelize.STRING",
+  "TeamUuid" : "56cea70e-5488-449f-b6b3-7030d77ef87f"
+
+}
+###
+POST https://mychatappmessenger.herokuapp.com/visitors HTTP/1.1
+Content-Type: application/json
+
+{
+    "bloodSugar" : "ok",
+    "weight" : "ok",
+    "mood" : "ok",
+    "appetite" : "ok",
+    "patientUuid": "3421d7cf-c8cd-4cde-9a33-92a0e605fc88"
+
+}
+
+###
+DELETE https://mychatappmessenger.herokuapp.com/visitors/7c5a812e-d265-409c-b922-4bf9b50fd9cc HTTP/1.1
