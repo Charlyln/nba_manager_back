@@ -41,7 +41,15 @@ playerStats.get('/:UserUuid', async (req, res) => {
 })
 
 playerStats.post('/', async (req, res) => {
-  const { PlayerUuid, GameUuid, pts, reb, UserUuid, pas } = req.body
+  const {
+    PlayerUuid,
+    GameUuid,
+    pts,
+    reb,
+    UserUuid,
+    pas,
+    teamIdAtTheGame
+  } = req.body
   try {
     const playerstats = await PlayerStats.create({
       PlayerUuid,
@@ -49,7 +57,8 @@ playerStats.post('/', async (req, res) => {
       pts,
       reb,
       UserUuid,
-      pas
+      pas,
+      teamIdAtTheGame
     })
     res.status(201).json(playerstats)
   } catch (err) {

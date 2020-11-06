@@ -11,7 +11,8 @@ const PlayerStats = sequelizeInstance.define('PlayerStats', {
   },
   pts: Sequelize.INTEGER,
   reb: Sequelize.INTEGER,
-  pas: Sequelize.INTEGER
+  pas: Sequelize.INTEGER,
+  teamIdAtTheGame: Sequelize.STRING
 })
 
 module.exports = PlayerStats
