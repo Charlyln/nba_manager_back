@@ -3,12 +3,16 @@ const sequelize = require('./sequelize')
 const users = require('./routes/users.routes')
 const teams = require('./routes/team.route')
 const players = require('./routes/player.route')
+const dataCreation = require('./routes/dataCreation')
+const games = require('./routes/game.route')
+const visitors = require('./routes/visitor.route')
+const playerStats = require('./routes/playerStats.route')
+const seasons = require('./routes/season.route')
+const days = require('./routes/day.route')
 
 var cors = require('cors')
 
 const app = express()
-
-// const dataCreation = require('./middlewares/dataCreation')
 
 const PORT = process.env.PORT || 8080
 
@@ -20,6 +24,12 @@ app.use(express.static('public'))
 app.use('/users', users)
 app.use('/teams', teams)
 app.use('/players', players)
+app.use('/dataCreation', dataCreation)
+app.use('/games', games)
+app.use('/visitors', visitors)
+app.use('/playerStats', playerStats)
+app.use('/seasons', seasons)
+app.use('/days', days)
 
 require('./models/association')
 
@@ -29,9 +39,8 @@ app.get('/', (req, res) => {
 
 async function main() {
   try {
-    await sequelize.sync({ force: true })
+    await sequelize.sync()
     await sequelize.authenticate()
-    // await dataCreation()
     console.log('Database succesfully joined')
     app.listen(PORT, (err) => {
       if (err) throw new Error(err.message)
