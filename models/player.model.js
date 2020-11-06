@@ -23,7 +23,8 @@ const Player = sequelizeInstance.define('Player', {
   pasMin: Sequelize.INTEGER,
   pasMax: Sequelize.INTEGER,
   salary: Sequelize.INTEGER,
-  contractLeft: Sequelize.INTEGER
+  contractLeft: Sequelize.INTEGER,
+  age: Sequelize.INTEGER
 })
 
 module.exports = Player
