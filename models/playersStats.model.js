@@ -2,16 +2,16 @@ const Sequelize = require('sequelize')
 
 const sequelizeInstance = require('../sequelize')
 
-const Team = sequelizeInstance.define('Team', {
+const PlayerStats = sequelizeInstance.define('PlayerStats', {
   uuid: {
     type: Sequelize.UUID,
     allowNull: false,
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4
   },
-  name: Sequelize.STRING,
-  logo: Sequelize.STRING,
-  choice: Sequelize.BOOLEAN
+  pts: Sequelize.INTEGER,
+  reb: Sequelize.INTEGER,
+  pas: Sequelize.INTEGER
 })
 
-module.exports = Team
+module.exports = PlayerStats

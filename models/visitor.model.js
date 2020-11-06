@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 
 const sequelizeInstance = require('../sequelize')
 
-const Team = sequelizeInstance.define('Team', {
+const Visitor = sequelizeInstance.define('Visitor', {
   uuid: {
     type: Sequelize.UUID,
     allowNull: false,
@@ -10,8 +10,7 @@ const Team = sequelizeInstance.define('Team', {
     defaultValue: Sequelize.UUIDV4
   },
   name: Sequelize.STRING,
-  logo: Sequelize.STRING,
-  choice: Sequelize.BOOLEAN
+  logo: Sequelize.STRING
 })
 
-module.exports = Team
+module.exports = Visitor

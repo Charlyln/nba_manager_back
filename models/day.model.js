@@ -2,16 +2,14 @@ const Sequelize = require('sequelize')
 
 const sequelizeInstance = require('../sequelize')
 
-const Team = sequelizeInstance.define('Team', {
+const Day = sequelizeInstance.define('Day', {
   uuid: {
     type: Sequelize.UUID,
     allowNull: false,
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4
   },
-  name: Sequelize.STRING,
-  logo: Sequelize.STRING,
-  choice: Sequelize.BOOLEAN
+  date: Sequelize.STRING
 })
 
-module.exports = Team
+module.exports = Day
