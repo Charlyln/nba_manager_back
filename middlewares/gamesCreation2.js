@@ -11,6 +11,7 @@ const GamesDataCreation2 = async (uuid, TeamUuid) => {
       UserUuid: uuid
     }
   })
+
   const teams = await Team.findAll({
     where: {
       UserUuid: uuid
@@ -39,26 +40,26 @@ const GamesDataCreation2 = async (uuid, TeamUuid) => {
         })
     })
   )
-  let dayNumber =
-    (teams.length * teams.length - teams.length) / (teams.length / 2)
+  // let dayNumber =
+  //   (teams.length * teams.length - teams.length) / (teams.length / 2)
 
-  for (let i = 0; i < dayNumber; i++) {
-    await Day.create({
-      date: 'coucou',
-      SeasonUuid: season.dataValues.uuid,
-      UserUuid: uuid
-    })
-  }
-  const days = await Day.findAll({
-    where: {
-      UserUuid: uuid
-    }
-  })
-  const games = await Game.findAll({
-    where: {
-      UserUuid: uuid
-    }
-  })
+  // for (let i = 0; i < dayNumber; i++) {
+  //   await Day.create({
+  //     date: 'coucou',
+  //     SeasonUuid: season.dataValues.uuid,
+  //     UserUuid: uuid
+  //   })
+  // }
+  // const days = await Day.findAll({
+  //   where: {
+  //     UserUuid: uuid
+  //   }
+  // })
+  // const games = await Game.findAll({
+  //   where: {
+  //     UserUuid: uuid
+  //   }
+  // })
 
   // const daysok = days.map(async (day) => {
   //   try {

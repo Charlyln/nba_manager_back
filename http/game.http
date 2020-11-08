@@ -1,4 +1,4 @@
-GET http://localhost:8080/games/d8a966ab-91fa-4678-ab7a-fbd9c7911e53
+POST http://localhost:8080/gamePlayed/40a8882c-9f74-44f9-88b0-cef850f63353
 
 ###
 POST http://localhost:8080/dataCreation/games/520d23a7-a170-47ec-8b73-4ef1eb2bf39
