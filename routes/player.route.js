@@ -4,6 +4,10 @@ const Player = require('../models/player.model')
 const Team = require('../models/team.model')
 const PlayerStats = require('../models/playersStats.model')
 const Game = require('../models/game.model')
+const changePlayersAge = require('../middlewares/changePlayersAge')
+const changePlayersContract = require('../middlewares/changePlayersContract')
+const retirements = require('../middlewares/retirements')
+const playerOptions = require('../middlewares/playerOptions')
 
 players.get('/', async (req, res) => {
   try {
@@ -78,6 +82,46 @@ players.post('/', async (req, res) => {
   }
 })
 
+players.post('/changeAge/:UserUuid', async (req, res) => {
+  const UserUuid = req.params.UserUuid
+  try {
+    const changeage = await changePlayersAge(UserUuid)
+    res.status(201).json(changeage)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+players.post('/changeContract/:UserUuid', async (req, res) => {
+  const UserUuid = req.params.UserUuid
+  try {
+    const changecontract = await changePlayersContract(UserUuid)
+    res.status(201).json(changecontract)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+players.post('/retirements/:UserUuid', async (req, res) => {
+  const UserUuid = req.params.UserUuid
+  try {
+    const retirement = await retirements(UserUuid)
+    res.status(201).json(retirement)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+players.post('/playerOptions/:TeamUuid', async (req, res) => {
+  const TeamUuid = req.params.TeamUuid
+  try {
+    const playerOption = await playerOptions(TeamUuid)
+    res.status(201).json(playerOption)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
 players.put('/:uuid', async (req, res) => {
   const uuid = req.params.uuid
   const {
@@ -91,7 +135,8 @@ players.put('/:uuid', async (req, res) => {
     pasMin,
     pasMax,
     salary,
-    contractLeft
+    contractLeft,
+    age
   } = req.body
   try {
     const players = await Player.update(
@@ -106,7 +151,8 @@ players.put('/:uuid', async (req, res) => {
         pasMin,
         pasMax,
         salary,
-        contractLeft
+        contractLeft,
+        age
       },
       { where: { uuid } }
     )
@@ -115,5 +161,15 @@ players.put('/:uuid', async (req, res) => {
     res.status(422).json(err)
   }
 })
+
+// players.delete('/:uuid', async (req, res) => {
+//   const uuid = req.params.uuid
+//   try {
+//     await Travel.destroy({ where: { uuid, age } })
+//     res.status(204).send('Votre travel a été supprimé')
+//   } catch (err) {
+//     res.status(422).json(err)
+//   }
+// })
 
 module.exports = players

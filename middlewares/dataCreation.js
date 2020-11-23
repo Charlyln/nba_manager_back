@@ -801,7 +801,7 @@ const teamsPlayersCreation = async (uuid) => {
     value: 80,
     ptsBeg: 10,
     salary: 7000000,
-    contractLeft: 2,
+    contractLeft: 0,
     age: 28,
     rebBeg: 5,
     pasBeg: 5,

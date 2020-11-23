@@ -5,7 +5,6 @@ const Game = require('./game.model')
 const Visitor = require('./visitor.model')
 const PlayerStats = require('./playersStats.model')
 const Season = require('./season.model')
-const Day = require('./day.model')
 
 User.hasMany(Team, { foreignKey: { allowNull: true } })
 Team.belongsTo(User)
@@ -18,9 +17,6 @@ Visitor.belongsTo(User)
 
 User.hasMany(Game, { foreignKey: { allowNull: true } })
 Game.belongsTo(User)
-
-User.hasMany(Day, { foreignKey: { allowNull: true } })
-Day.belongsTo(User)
 
 Team.hasMany(Player, { foreignKey: { allowNull: true } })
 Player.belongsTo(Team)
@@ -49,11 +45,7 @@ Game.belongsTo(Season)
 User.hasMany(Season, { foreignKey: { allowNull: false } })
 Season.belongsTo(User)
 
-Season.hasMany(Day, { foreignKey: { allowNull: true } })
-Day.belongsTo(Season)
 
-Day.hasMany(Game, { foreignKey: { allowNull: true } })
-Game.belongsTo(Day)
 
 // Team.hasMany(Game, { as: 'Visitor',foreignKey: { allowNull: false  } })
 // Game.belongsTo(Team)
