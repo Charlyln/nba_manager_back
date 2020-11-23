@@ -5,7 +5,7 @@ const Team = require('../models/team.model')
 const Player = require('../models/player.model')
 const Visitor = require('../models/visitor.model')
 
-const allGamePlayed = async (uuid) => {
+const twoGamePlayed = async (uuid, TeamUuid) => {
   const game = await Game.findAll({
     where: {
       SeasonUuid: uuid
@@ -48,18 +48,38 @@ const allGamePlayed = async (uuid) => {
     ]
   })
 
-  const res = Promise.all(
-    game
-      .filter((game) => game.PlayerStats.length < 1)
-      .map(async (game) => {
+  const gameFiltered = game.filter(
+    (game) =>
+      !game.teamWin &&
+      game.TeamUuid !== TeamUuid &&
+      game.Visitor.TeamUuid !== TeamUuid
+  )
+
+  const onlyTwoGame = gameFiltered.slice(0, 2)
+
+  if (gameFiltered.length < 4) {
+    const res = Promise.all(
+      gameFiltered.map(async (game) => {
         try {
           return gamePlayed(game.uuid)
         } catch (err) {
           console.log(err)
         }
       })
-  )
-  return res
+    )
+  } else {
+    const res = Promise.all(
+      onlyTwoGame.map(async (game) => {
+        try {
+          return gamePlayed(game.uuid)
+        } catch (err) {
+          console.log(err)
+        }
+      })
+    )
+  }
+
+  return [gameFiltered, onlyTwoGame]
 }
 
-module.exports = allGamePlayed
+module.exports = twoGamePlayed

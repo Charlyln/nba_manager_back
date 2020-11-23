@@ -2,13 +2,15 @@ const express = require('express')
 const gamesPlayed = express.Router()
 const gamePlayed = require('../middlewares/gamePlayed')
 const allGamePlayed = require('../middlewares/allGamePlayed')
+const twoGamePlayed = require('../middlewares/twoGamePlayed')
 
-gamesPlayed.post('/:uuid', async (req, res) => {
-  const { uuid } = req.params
+gamesPlayed.post('/:uuid/:SeasonUuid/:TeamUuid', async (req, res) => {
+  const { uuid, SeasonUuid, TeamUuid } = req.params
 
   try {
-    const gamesplayed = await gamePlayed(uuid)
-    res.status(201).json(gamesplayed)
+    const test = await gamePlayed(uuid)
+    const TwoOtherGamePlayed = await twoGamePlayed(SeasonUuid, TeamUuid)
+    res.status(201).json(test)
   } catch (err) {
     res.status(422).json(err)
   }

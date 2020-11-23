@@ -24,10 +24,10 @@ dataCreation.post('/games/:uuid', async (req, res) => {
   }
 })
 
-dataCreation.post('/games2/:uuid/:TeamUuid', async (req, res) => {
-  const { uuid, TeamUuid } = req.params
+dataCreation.post('/games2/:uuid', async (req, res) => {
+  const { uuid } = req.params
   try {
-    const datacreation = await GamesDataCreation2(uuid, TeamUuid)
+    const datacreation = await GamesDataCreation2(uuid)
     res.status(201).json(datacreation)
   } catch (err) {
     res.status(422).json(err)

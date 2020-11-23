@@ -6,17 +6,6 @@ const Player = require('../models/player.model')
 const Visitor = require('../models/visitor.model')
 const PlayerStats = require('../models/playersStats.model')
 
-// include: [
-//   { model: Likes },
-//   {
-//     model: User,
-//     include: [
-//       {
-//         model: Followers,
-//       },
-//     ],
-//   },
-
 games.get('/', async (req, res) => {
   try {
     const games = await Game.findAll({
@@ -58,12 +47,21 @@ games.get('/', async (req, res) => {
   }
 })
 
-games.get('/:UserUuid', async (req, res) => {
-  const { UserUuid } = req.params
+games.get('/:SeasonUuid/:TeamUuid', async (req, res) => {
+  const { SeasonUuid, TeamUuid } = req.params
   try {
     const games = await Game.findAll({
       where: {
-        UserUuid
+        SeasonUuid
+
+        // [Game.or]: [
+        //   {
+        //     TeamUuid
+        //   }
+        // {
+        //   '$Visitor.TeamUuid$': TeamUuid
+        // }
+        // ]
       },
       include: [
         {
@@ -102,11 +100,82 @@ games.get('/:UserUuid', async (req, res) => {
         }
       ]
     })
+
+    const gamesFiltered = games.filter(
+      (game) => game.TeamUuid === TeamUuid || game.Visitor.TeamUuid === TeamUuid
+    )
+    res.status(200).json(gamesFiltered)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
+games.get('/:SeasonUuid', async (req, res) => {
+  const { SeasonUuid } = req.params
+  try {
+    const games = await Game.findAll({
+      where: {
+        SeasonUuid
+      },
+      include: [
+        {
+          model: Team,
+          include: [
+            {
+              model: Player
+            }
+          ]
+        },
+        {
+          model: PlayerStats,
+          include: [
+            {
+              model: Player,
+              include: [
+                {
+                  model: Team
+                }
+              ]
+            }
+          ]
+        },
+        {
+          model: Visitor,
+          include: [
+            {
+              model: Team,
+              include: [
+                {
+                  model: Player
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+
     res.status(200).json(games)
   } catch (err) {
     res.status(400).json(err)
   }
 })
+
+// games.post('/:SeasonUuid/unplayed', async (req, res) => {
+//   const { SeasonUuid } = req.params
+//   try {
+//     const games = await Game.findAll({
+//       where: {
+//         SeasonUuid,
+//         team1: null
+//       }
+//     })
+
+//     res.status(200).json(games)
+//   } catch (err) {
+//     res.status(400).json(err)
+//   }
+// })
 
 games.get('/', async (req, res) => {
   try {
@@ -127,7 +196,6 @@ games.post('/', async (req, res) => {
     date,
     UserUuid,
     SeasonUuid,
-    DayUuid,
     team1,
     team2
   } = req.body
@@ -138,7 +206,6 @@ games.post('/', async (req, res) => {
       date,
       UserUuid,
       SeasonUuid,
-      DayUuid,
       team1,
       team2
     })
@@ -156,9 +223,10 @@ games.put('/:uuid', async (req, res) => {
     date,
     UserUuid,
     SeasonUuid,
-    DayUuid,
     team1,
-    team2
+    team2,
+    teamWin,
+    teamLoose
   } = req.body
   try {
     const games = await Game.update(
@@ -168,9 +236,10 @@ games.put('/:uuid', async (req, res) => {
         date,
         UserUuid,
         SeasonUuid,
-        DayUuid,
         team1,
-        team2
+        team2,
+        teamWin,
+        teamLoose
       },
       { where: { uuid } }
     )

@@ -11,7 +11,9 @@ const Game = sequelizeInstance.define('Game', {
   },
   date: Sequelize.STRING,
   team1: Sequelize.INTEGER,
-  team2: Sequelize.INTEGER
+  team2: Sequelize.INTEGER,
+  teamWin: Sequelize.STRING,
+  teamLoose: Sequelize.STRING
 })
 
 module.exports = Game

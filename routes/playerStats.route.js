@@ -66,4 +66,21 @@ playerStats.post('/', async (req, res) => {
   }
 })
 
+playerStats.put('/change/:uuid', async (req, res) => {
+  const { pts, reb, pas } = req.body
+  const uuid = req.params.uuid
+  try {
+    const playerstats = await PlayerStats.update(
+      {
+        pts,
+        reb,
+        pas
+      },
+      { where: { uuid } }
+    )
+    res.status(201).json(playerstats)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
 module.exports = playerStats

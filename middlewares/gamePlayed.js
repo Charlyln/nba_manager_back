@@ -35,13 +35,14 @@ const gamePlayed = async (uuid) => {
     ]
   })
 
-  let team1Score = 0
+  const arrayTeam1 = []
 
-  const res1 = Promise.all(
-    game.Team.Players.map(async (player) => {
+  Promise.all(
+    game.Team.Players.map(async (player, i) => {
       const playerScore = Math.floor(
         Math.random() * (player.ptsMax - player.ptsMin) + player.ptsMin
       )
+      arrayTeam1.push(playerScore)
 
       try {
         const playerstats = await PlayerStats.create({
@@ -51,30 +52,20 @@ const gamePlayed = async (uuid) => {
           UserUuid: game.UserUuid,
           teamIdAtTheGame: game.TeamUuid
         })
-
-        team1Score = team1Score + playerScore
-        return playerstats
       } catch (err) {
         console.log(err)
-      } finally {
-        const gameId = game.uuid
-        const games = await Game.update(
-          {
-            team1: team1Score
-          },
-          { where: { uuid: gameId } }
-        )
       }
     })
   )
 
-  let team2Score = 0
+  const arrayTeam2 = []
 
   Promise.all(
     game.Visitor.Team.Players.map(async (player) => {
       const playerScore = Math.floor(
         Math.random() * (player.ptsMax - player.ptsMin) + player.ptsMin
       )
+      arrayTeam2.push(playerScore)
 
       try {
         const playerstats = await PlayerStats.create({
@@ -84,54 +75,55 @@ const gamePlayed = async (uuid) => {
           UserUuid: game.UserUuid,
           teamIdAtTheGame: game.Visitor.TeamUuid
         })
-
-        team2Score = team2Score + playerScore
       } catch (err) {
         console.log(err)
-      } finally {
-        const gameId = game.uuid
-        const games = await Game.update(
-          {
-            team2: team2Score
-          },
-          { where: { uuid: gameId } }
-        )
       }
     })
   )
 
-  return res1
+  let totalTeam1 = arrayTeam1.reduce((a, b) => (a = a + b), 0)
+  let totalTeam2 = arrayTeam2.reduce((a, b) => (a = a + b), 0)
+
+  const gameId1 = game.uuid
+
+  if (totalTeam1 >= totalTeam2) {
+    await Game.update(
+      {
+        team1: totalTeam1,
+        team2: totalTeam2,
+        teamWin: game.TeamUuid,
+        teamLoose: game.Visitor.TeamUuid
+      },
+      { where: { uuid: gameId1 } }
+    )
+  } else if (totalTeam1 < totalTeam2) {
+    await Game.update(
+      {
+        team1: totalTeam1,
+        team2: totalTeam2,
+        teamWin: game.Visitor.TeamUuid,
+        teamLoose: game.TeamUuid
+      },
+      { where: { uuid: gameId1 } }
+    )
+  }
+
+  //   // await PlayerStats.update(
+  //   //   {
+  //   //     pts: playerStat.dataValues.pts + 1
+  //   //   },
+  //   //   { where: { uuid: playerStat.dataValues.uuid } }
+  //   // )
+
+  //   // await Game.update(
+  //   //   {
+  //   //     team1: totalTeam1,
+  //   //     team2: totalTeam2,
+  //   //     teamWin: game.TeamUuid,
+  //   //     teamLoose: game.Visitor.TeamUuid
+  //   //   },
+  //   //   { where: { uuid: gameId1 } }
+  //   // )
 }
 
 module.exports = gamePlayed
-
-// const gamePlayed2 = async (uuid, SeasonUuid) => {
-//   const games = await Game.findAll({
-//     where: {
-//       UserUuid: uuid,
-//       SeasonUuid
-//     }
-//   })
-
-//   let results = Promise.all(
-//     teams.map(async (team, i) => {
-//       visitors
-//         .filter((visitor) => team.uuid !== visitor.TeamUuid)
-//         .map(async (visitor) => {
-//           try {
-//             const res = await Game.create({
-//               date: i,
-//               TeamUuid: team.uuid,
-//               VisitorUuid: visitor.uuid,
-//               UserUuid: uuid,
-//               SeasonUuid: season.dataValues.uuid
-//             })
-//           } catch (err) {
-//             console.log(err)
-//           }
-//         })
-//     })
-//   )
-// }
-
-// module.exports = gamePlayed2

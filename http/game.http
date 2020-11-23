@@ -1,5 +1,4 @@
-POST http://localhost:8080/gamePlayed/40a8882c-9f74-44f9-88b0-cef850f63353
-
+POST http://localhost:8080/games/ffb016e0-3b90-44e0-bbec-cd3fa9e57f8b/unplayed
 ###
 POST http://localhost:8080/dataCreation/games/520d23a7-a170-47ec-8b73-4ef1eb2bf39
 Content-Type: application/json

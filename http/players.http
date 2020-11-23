@@ -1,4 +1,11 @@
-GET http://localhost:8080/players/mystats/ab681f13-4082-4ecf-ac11-74c8fb495555
+PUT http://localhost:8080/playerStats/change/011e3b67-8c1d-4b9a-8dbf-ab9b15c277bf
+Content-Type: application/json
+
+{
+    "pts" : 20
+
+}
+
 ###
 POST http://localhost:8080/dataCreation/games2/3f7cb749-07fb-4861-b40e-db9de6e06ab3/4f08a914-5a34-4f2a-8566-59e818b2ec6b HTTP/1.1
 Content-Type: application/json
