@@ -8,6 +8,7 @@ const changePlayersAge = require('../middlewares/changePlayersAge')
 const changePlayersContract = require('../middlewares/changePlayersContract')
 const retirements = require('../middlewares/retirements')
 const playerOptions = require('../middlewares/playerOptions')
+const getBestPlayers = require('../middlewares/getBestPlayers')
 
 players.get('/', async (req, res) => {
   try {
@@ -60,6 +61,19 @@ players.get('/:UserUuid', async (req, res) => {
       }
     })
     res.status(200).json(players)
+  } catch (error) {
+    res.status(400).json({
+      status: 'error',
+      message: 'Invalid request'
+    })
+  }
+})
+
+players.get('/bestPlayers/:UserUuid/:SeasonUuid', async (req, res) => {
+  const { UserUuid, SeasonUuid } = req.params
+  try {
+    const bestPlayers = await getBestPlayers(UserUuid, SeasonUuid)
+    res.status(200).json(bestPlayers)
   } catch (error) {
     res.status(400).json({
       status: 'error',
