@@ -24,7 +24,11 @@ const Player = sequelizeInstance.define('Player', {
   pasMax: Sequelize.FLOAT,
   salary: Sequelize.INTEGER,
   contractLeft: Sequelize.INTEGER,
-  age: Sequelize.INTEGER
+  age: Sequelize.INTEGER,
+  isRookie: {
+    type: Sequelize.BOOLEAN,
+    allowNull: true
+  }
 })
 
 module.exports = Player

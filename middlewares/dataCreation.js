@@ -813,91 +813,91 @@ const teamsPlayersCreation = async (uuid) => {
     pasMax: 12
   })
 
-    // retirements
+  // retirements
 
-    await Player.create({
-      firstName: 'Vince',
-      lastName: 'Carter',
-      photo:
-        'https://www.basketball-reference.com/req/202011051/images/players/cartevi01.jpg',
-      UserUuid: uuid,
-      value: 80,
-      ptsBeg: 10,
-      salary: 7000000,
-      contractLeft: 2,
-      age: 43,
-      rebBeg: 5,
-      pasBeg: 5,
-      ptsMin: 10,
-      ptsMax: 20,
-      rebMin: 5,
-      rebMax: 12,
-      pasMin: 5,
-      pasMax: 12
-    })
+  await Player.create({
+    firstName: 'Vince',
+    lastName: 'Carter',
+    photo:
+      'https://www.basketball-reference.com/req/202011051/images/players/cartevi01.jpg',
+    UserUuid: uuid,
+    value: 80,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 43,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
 
-    await Player.create({
-      firstName: 'Udonis', 
-      lastName: 'Haslem',
-      photo:
-        'https://www.basketball-reference.com/req/202011051/images/players/hasleud01.jpg',
-      UserUuid: uuid,
-      value: 80,
-      ptsBeg: 10,
-      salary: 7000000,
-      contractLeft: 2,
-      age: 40,
-      rebBeg: 5,
-      pasBeg: 5,
-      ptsMin: 10,
-      ptsMax: 20,
-      rebMin: 5,
-      rebMax: 12,
-      pasMin: 5,
-      pasMax: 12
-    })
+  await Player.create({
+    firstName: 'Udonis',
+    lastName: 'Haslem',
+    photo:
+      'https://www.basketball-reference.com/req/202011051/images/players/hasleud01.jpg',
+    UserUuid: uuid,
+    value: 80,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 40,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
 
-    await Player.create({
-      firstName: 'Pau', 
-      lastName: 'Gasol',
-      photo:
-        'https://www.basketball-reference.com/req/202011051/images/players/gasolpa01.jpg',
-      UserUuid: uuid,
-      value: 80,
-      ptsBeg: 10,
-      salary: 7000000,
-      contractLeft: 2,
-      age: 40,
-      rebBeg: 5,
-      pasBeg: 5,
-      ptsMin: 10,
-      ptsMax: 20,
-      rebMin: 5,
-      rebMax: 12,
-      pasMin: 5,
-      pasMax: 12
-    })
+  await Player.create({
+    firstName: 'Pau',
+    lastName: 'Gasol',
+    photo:
+      'https://www.basketball-reference.com/req/202011051/images/players/gasolpa01.jpg',
+    UserUuid: uuid,
+    value: 80,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 40,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
 
-    await Player.create({
-      firstName: 'Kyle',  
-      lastName: 'Korver',
-      photo:
-        'https://www.basketball-reference.com/req/202011051/images/players/korveky01.jpg',
-      UserUuid: uuid,
-      value: 80,
-      ptsBeg: 10,
-      salary: 7000000,
-      contractLeft: 2,
-      age: 39,
-      rebBeg: 5,
-      pasBeg: 5,
-      ptsMin: 10,
-      ptsMax: 20,
-      rebMin: 5,
-      rebMax: 12,
-      pasMin: 5,
-      pasMax: 12
-    })
+  await Player.create({
+    firstName: 'Kyle',
+    lastName: 'Korver',
+    photo:
+      'https://www.basketball-reference.com/req/202011051/images/players/korveky01.jpg',
+    UserUuid: uuid,
+    value: 80,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 39,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
 
   // prospects
 
@@ -919,7 +919,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
   await Player.create({
     firstName: 'Killian',
@@ -939,7 +940,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
   await Player.create({
     firstName: 'Deni',
@@ -959,7 +961,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
 
   await Player.create({
@@ -980,7 +983,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
   await Player.create({
     firstName: 'Lamelo',
@@ -1000,7 +1004,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
   await Player.create({
     firstName: 'Anthony',
@@ -1020,7 +1025,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
   await Player.create({
     firstName: 'James',
@@ -1040,7 +1046,8 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
-    pasMax: 8
+    pasMax: 8,
+    isRookie: true
   })
 }
 

@@ -150,7 +150,8 @@ players.put('/:uuid', async (req, res) => {
     pasMax,
     salary,
     contractLeft,
-    age
+    age,
+    isRookie
   } = req.body
   try {
     const players = await Player.update(
@@ -166,7 +167,8 @@ players.put('/:uuid', async (req, res) => {
         pasMax,
         salary,
         contractLeft,
-        age
+        age,
+        isRookie
       },
       { where: { uuid } }
     )
