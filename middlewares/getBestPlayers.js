@@ -31,8 +31,14 @@ const getBestPlayers = async (UserUuid, SeasonUuid) => {
   const reReFilteredPlayers = reFilteredPlayers
     .sort(function (a, b) {
       return (
-        new Date(b.PlayerStats.reduce((a, v) => (a = a + v.pts), 0)) -
-        new Date(a.PlayerStats.reduce((a, v) => (a = a + v.pts), 0))
+        new Date(
+          b.PlayerStats.reduce((a, v) => (a = a + v.pts), 0) /
+            b.PlayerStats.length
+        ) -
+        new Date(
+          a.PlayerStats.reduce((a, v) => (a = a + v.pts), 0) /
+            a.PlayerStats.length
+        )
       )
     })
     .slice(0, 12)
