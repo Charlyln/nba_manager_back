@@ -40,6 +40,22 @@ users.post('/', async (req, res) => {
   }
 })
 
+users.put('/:uuid', async (req, res) => {
+  const { pseudo } = req.body
+  const uuid = req.params.uuid
+  try {
+    const user = await User.update(
+      {
+        pseudo
+      },
+      { where: { uuid } }
+    )
+    res.status(201).json(user)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
 users.delete('/:uuid', async (req, res) => {
   const uuid = req.params.uuid
   try {
