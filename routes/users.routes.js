@@ -40,4 +40,14 @@ users.post('/', async (req, res) => {
   }
 })
 
+users.delete('/:uuid', async (req, res) => {
+  const uuid = req.params.uuid
+  try {
+    await User.destroy({ where: { uuid } })
+    res.status(204).send('User a été supprimé')
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
 module.exports = users

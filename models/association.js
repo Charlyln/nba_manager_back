@@ -6,16 +6,16 @@ const Visitor = require('./visitor.model')
 const PlayerStats = require('./playersStats.model')
 const Season = require('./season.model')
 
-User.hasMany(Team, { foreignKey: { allowNull: true } })
+User.hasMany(Team, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Team.belongsTo(User)
 
-User.hasMany(Player, { foreignKey: { allowNull: true } })
+User.hasMany(Player, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Player.belongsTo(User)
 
-User.hasMany(Visitor, { foreignKey: { allowNull: false } })
+User.hasMany(Visitor, { foreignKey: { allowNull: false }, onDelete: 'cascade' })
 Visitor.belongsTo(User)
 
-User.hasMany(Game, { foreignKey: { allowNull: true } })
+User.hasMany(Game, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Game.belongsTo(User)
 
 Team.hasMany(Player, { foreignKey: { allowNull: true } })
@@ -36,16 +36,17 @@ PlayerStats.belongsTo(Player)
 Game.hasMany(PlayerStats, { foreignKey: { allowNull: false } })
 PlayerStats.belongsTo(Game)
 
-User.hasMany(PlayerStats, { foreignKey: { allowNull: false } })
+User.hasMany(PlayerStats, {
+  foreignKey: { allowNull: false },
+  onDelete: 'cascade'
+})
 PlayerStats.belongsTo(User)
 
 Season.hasMany(Game, { foreignKey: { allowNull: false } })
 Game.belongsTo(Season)
 
-User.hasMany(Season, { foreignKey: { allowNull: false } })
+User.hasMany(Season, { foreignKey: { allowNull: false }, onDelete: 'cascade' })
 Season.belongsTo(User)
-
-
 
 // Team.hasMany(Game, { as: 'Visitor',foreignKey: { allowNull: false  } })
 // Game.belongsTo(Team)
