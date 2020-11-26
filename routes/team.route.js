@@ -32,12 +32,14 @@ teams.get('/myleague/:UserUuid', async (req, res) => {
       where: {
         UserUuid
       },
+      order: [['name', 'ASC']],
       include: [
         {
           model: Player
         }
       ]
     })
+
     res.status(200).json(teams)
   } catch (err) {
     res.status(400).json(err)
