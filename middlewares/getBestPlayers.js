@@ -12,7 +12,10 @@ const getBestPlayers = async (UserUuid, SeasonUuid) => {
         model: PlayerStats,
         include: [
           {
-            model: Game
+            model: Game,
+            where: {
+              SeasonUuid
+            }
           },
           { model: Player }
         ]
