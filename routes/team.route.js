@@ -66,8 +66,8 @@ teams.get('/myteam/:UserUuid', async (req, res) => {
   }
 })
 
-teams.get('/myteam/stats/:UserUuid', async (req, res) => {
-  const { UserUuid } = req.params
+teams.get('/myteam/stats/:UserUuid/:SeasonUuid', async (req, res) => {
+  const { UserUuid, SeasonUuid } = req.params
   try {
     const teams = await Team.findOne({
       where: {
@@ -90,7 +90,10 @@ teams.get('/myteam/stats/:UserUuid', async (req, res) => {
                     {
                       model: Visitor
                     }
-                  ]
+                  ],
+                  where: {
+                    SeasonUuid
+                  }
                 }
               ]
             }
