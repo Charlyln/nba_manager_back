@@ -86,7 +86,7 @@ const gamePlayed = async (uuid) => {
 
   const gameId1 = game.uuid
 
-  if (totalTeam1 >= totalTeam2) {
+  if (totalTeam1 > totalTeam2) {
     await Game.update(
       {
         team1: totalTeam1,
@@ -106,8 +106,17 @@ const gamePlayed = async (uuid) => {
       },
       { where: { uuid: gameId1 } }
     )
+  } else if (totalTeam1 === totalTeam2) {
+    await Game.update(
+      {
+        team1: totalTeam1 + 1,
+        team2: totalTeam2,
+        teamWin: game.Visitor.TeamUuid,
+        teamLoose: game.TeamUuid
+      },
+      { where: { uuid: gameId1 } }
+    )
   }
-
   //   // await PlayerStats.update(
   //   //   {
   //   //     pts: playerStat.dataValues.pts + 1
