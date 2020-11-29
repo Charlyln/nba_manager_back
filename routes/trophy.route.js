@@ -29,6 +29,24 @@ trophies.get('/:UserUuid', async (req, res) => {
   }
 })
 
+trophies.get('/:name/:UserUuid', async (req, res) => {
+  const { UserUuid, name } = req.params
+  try {
+    const trophy = await Trophy.findOne({
+      where: {
+        UserUuid,
+        name
+      }
+    })
+    res.status(200).json(trophy)
+  } catch (error) {
+    res.status(400).json({
+      status: 'error',
+      message: 'Invalid request'
+    })
+  }
+})
+
 trophies.post('/', async (req, res) => {
   const { name, difficulty, earned, UserUuid } = req.body
   try {
