@@ -1,6 +1,7 @@
 const express = require('express')
 const users = express.Router()
 const User = require('../models/user.model')
+const Trophy = require('../models/trophy.model')
 
 users.get('/', async (req, res) => {
   try {
@@ -17,7 +18,12 @@ users.get('/:uuid', async (req, res) => {
     const user = await User.findOne({
       where: {
         uuid
-      }
+      },
+      include: [
+        {
+          model: Trophy
+        }
+      ]
     })
     res.status(200).json(user)
   } catch (error) {
