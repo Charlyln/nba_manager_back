@@ -4,6 +4,7 @@ const dataCreationFunction = require('../middlewares/dataCreation')
 const gamesDataCreation = require('../middlewares/gamesCreation')
 const GamesDataCreation2 = require('../middlewares/gamesCreation2')
 const GamesDataCreationNewSeason = require('../middlewares/GamesDataCreationNewSeason')
+const trophyDataCreation = require('../middlewares/trophyDataCreation')
 
 dataCreation.post('/:uuid', async (req, res) => {
   const { uuid } = req.params
@@ -43,6 +44,16 @@ dataCreation.post('/newSeason/:uuid', async (req, res) => {
   try {
     const datacreation = await GamesDataCreationNewSeason(uuid, date)
     res.status(201).json(datacreation)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+dataCreation.post('/trophies/:uuid', async (req, res) => {
+  const { uuid } = req.params
+  try {
+    const trophies = await trophyDataCreation(uuid)
+    res.status(201).json(trophies)
   } catch (err) {
     res.status(422).json(err)
   }
