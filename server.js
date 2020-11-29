@@ -9,6 +9,7 @@ const visitors = require('./routes/visitor.route')
 const playerStats = require('./routes/playerStats.route')
 const seasons = require('./routes/season.route')
 const gamePlayed = require('./routes/gamesPlayed.route')
+const trophies = require('./routes/trophy.route')
 
 var cors = require('cors')
 
@@ -30,6 +31,7 @@ app.use('/visitors', visitors)
 app.use('/playerStats', playerStats)
 app.use('/seasons', seasons)
 app.use('/gamePlayed', gamePlayed)
+app.use('/trophies', trophies)
 
 require('./models/association')
 
