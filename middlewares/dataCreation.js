@@ -821,11 +821,11 @@ const teamsPlayersCreation = async (uuid) => {
     photo:
       'https://www.basketball-reference.com/req/202011051/images/players/cartevi01.jpg',
     UserUuid: uuid,
-    value: 80,
+    value: 72,
     ptsBeg: 10,
     salary: 7000000,
     contractLeft: 2,
-    age: 43,
+    age: 39,
     rebBeg: 5,
     pasBeg: 5,
     ptsMin: 10,
@@ -842,11 +842,11 @@ const teamsPlayersCreation = async (uuid) => {
     photo:
       'https://www.basketball-reference.com/req/202011051/images/players/hasleud01.jpg',
     UserUuid: uuid,
-    value: 80,
+    value: 71,
     ptsBeg: 10,
     salary: 7000000,
     contractLeft: 2,
-    age: 40,
+    age: 38,
     rebBeg: 5,
     pasBeg: 5,
     ptsMin: 10,
@@ -863,11 +863,11 @@ const teamsPlayersCreation = async (uuid) => {
     photo:
       'https://www.basketball-reference.com/req/202011051/images/players/gasolpa01.jpg',
     UserUuid: uuid,
-    value: 80,
+    value: 73,
     ptsBeg: 10,
     salary: 7000000,
     contractLeft: 2,
-    age: 40,
+    age: 37,
     rebBeg: 5,
     pasBeg: 5,
     ptsMin: 10,
@@ -884,11 +884,156 @@ const teamsPlayersCreation = async (uuid) => {
     photo:
       'https://www.basketball-reference.com/req/202011051/images/players/korveky01.jpg',
     UserUuid: uuid,
-    value: 80,
+    value: 75,
     ptsBeg: 10,
     salary: 7000000,
     contractLeft: 2,
-    age: 39,
+    age: 36,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+
+  await Player.create({
+    firstName: 'Jamal',
+    lastName: 'Crawford',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/165.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 36,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+
+  await Player.create({
+    firstName: 'Andre',
+    lastName: 'Iguodala',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2386.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 36,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+
+  await Player.create({
+    firstName: 'J.J.',
+    lastName: 'Barea',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3055.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 36,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+
+  await Player.create({
+    firstName: 'Marc',
+    lastName: 'Gasol',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3206.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 37,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+
+  await Player.create({
+    firstName: 'JR',
+    lastName: 'Smith',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2444.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 36,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+  await Player.create({
+    firstName: 'P.J.',
+    lastName: 'Tucker',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3033.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 36,
+    rebBeg: 5,
+    pasBeg: 5,
+    ptsMin: 10,
+    ptsMax: 20,
+    rebMin: 5,
+    rebMax: 12,
+    pasMin: 5,
+    pasMax: 12
+  })
+  await Player.create({
+    firstName: 'Tyson',
+    lastName: 'Chandler',
+    photo:
+      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/984.png&w=350&h=254',
+    UserUuid: uuid,
+    value: 72,
+    ptsBeg: 10,
+    salary: 7000000,
+    contractLeft: 2,
+    age: 38,
     rebBeg: 5,
     pasBeg: 5,
     ptsMin: 10,
