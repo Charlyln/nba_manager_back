@@ -11,7 +11,9 @@ const Trophy = sequelizeInstance.define('Trophy', {
   },
   name: Sequelize.STRING,
   difficulty: Sequelize.INTEGER,
-  earned: Sequelize.BOOLEAN
+  earned: Sequelize.BOOLEAN,
+  color: Sequelize.STRING,
+  isViewed: Sequelize.BOOLEAN
 })
 
 module.exports = Trophy
