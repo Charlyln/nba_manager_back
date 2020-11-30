@@ -6,6 +6,7 @@ const Player = require('../models/player.model')
 const PlayerStats = require('../models/playersStats.model')
 const Game = require('../models/game.model')
 const Visitor = require('../models/visitor.model')
+const putSalaryCapLeft = require('../middlewares/putSalaryCapLeft')
 
 teams.get('/', async (req, res) => {
   try {
@@ -162,6 +163,16 @@ teams.post('/', async (req, res) => {
       name,
       UserUuid
     })
+    res.status(201).json(teams)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+teams.post('/salaryCap/:UserUuid/:TeamUuid', async (req, res) => {
+  const { UserUuid, TeamUuid } = req.params
+  try {
+    const teams = await putSalaryCapLeft(UserUuid, TeamUuid)
     res.status(201).json(teams)
   } catch (err) {
     res.status(422).json(err)
