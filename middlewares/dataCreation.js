@@ -1004,26 +1004,6 @@ const teamsPlayersCreation = async (uuid) => {
     pasMax: 12
   })
   await Player.create({
-    firstName: 'P.J.',
-    lastName: 'Tucker',
-    photo:
-      'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3033.png&w=350&h=254',
-    UserUuid: uuid,
-    value: 72,
-    ptsBeg: 10,
-    salary: 7000000,
-    contractLeft: 0,
-    age: 36,
-    rebBeg: 5,
-    pasBeg: 5,
-    ptsMin: 10,
-    ptsMax: 20,
-    rebMin: 5,
-    rebMax: 12,
-    pasMin: 5,
-    pasMax: 12
-  })
-  await Player.create({
     firstName: 'Tyson',
     lastName: 'Chandler',
     photo:
