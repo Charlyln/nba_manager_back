@@ -2,6 +2,7 @@ const express = require('express')
 const users = express.Router()
 const User = require('../models/user.model')
 const Trophy = require('../models/trophy.model')
+const getMulitpledata = require('../middlewares/getMulitpledata')
 
 users.get('/', async (req, res) => {
   try {
@@ -41,6 +42,19 @@ users.post('/', async (req, res) => {
       pseudo
     })
     res.status(201).json(user)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+users.post('/mulitpledata/:UserUuid', async (req, res) => {
+  const { UserUuid } = req.params
+  const { TeamUuid, SeasonUuid } = req.body
+
+  try {
+    const test = await getMulitpledata(UserUuid, TeamUuid)
+
+    res.status(201).json(test)
   } catch (err) {
     res.status(422).json(err)
   }
