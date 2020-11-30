@@ -55,6 +55,14 @@ const trophiesCreation = async (uuid) => {
     isViewed: false
   })
   await Trophy.create({
+    name: 'Sign a player option',
+    difficulty: 6,
+    earned: false,
+    UserUuid: uuid,
+    color: 'bronze',
+    isViewed: false
+  })
+  await Trophy.create({
     name: 'Complete a season',
     difficulty: 6,
     earned: false,
