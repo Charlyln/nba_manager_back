@@ -1,4 +1,5 @@
 const express = require('express')
+const viewedTrophy = require('../middlewares/viewedTrophy')
 const earnedTrophy = require('../middlewares/earnedTrophy')
 const trophies = express.Router()
 const Trophy = require('../models/trophy.model')
@@ -68,6 +69,18 @@ trophies.post('/earned/:UserUuid', async (req, res) => {
 
   try {
     const test = await earnedTrophy(UserUuid, name)
+
+    res.status(201).json(test)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+trophies.post('/viewed/:UserUuid', async (req, res) => {
+  const { UserUuid } = req.params
+
+  try {
+    const test = await viewedTrophy(UserUuid)
 
     res.status(201).json(test)
   } catch (err) {
