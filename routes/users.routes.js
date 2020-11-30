@@ -35,6 +35,23 @@ users.get('/:uuid', async (req, res) => {
   }
 })
 
+users.get('/account/:uuid', async (req, res) => {
+  const uuid = req.params.uuid
+  try {
+    let isExist
+    const user = await User.findByPk(uuid)
+    if (user) {
+      isExist = true
+    }
+    res.status(200).json(isExist)
+  } catch (error) {
+    res.status(400).json({
+      status: 'error',
+      message: 'Invalid request'
+    })
+  }
+})
+
 users.post('/', async (req, res) => {
   const { pseudo } = req.body
   try {
