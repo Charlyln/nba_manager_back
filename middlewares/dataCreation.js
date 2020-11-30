@@ -9,37 +9,44 @@ const teamsPlayersCreation = async (uuid) => {
   await Team.create({
     name: 'Warriors',
     logo: 'https://fr.global.nba.com/media/img/teams/00/logos/GSW_logo.svg',
-    UserUuid: uuid
+    UserUuid: uuid,
+    salaryCapLeft: 0
   })
   await Team.create({
     name: 'Lakers',
     logo: 'https://fr.global.nba.com/media/img/teams/00/logos/LAL_logo.svg',
-    UserUuid: uuid
+    UserUuid: uuid,
+    salaryCapLeft: 0
   }),
     // await Team.create({
     //   name: 'Clippers',
     //   logo: 'https://fr.global.nba.com/media/img/teams/00/logos/LAC_logo.svg',
-    //   UserUuid: uuid
+    //   UserUuid: uuid,
+    // salaryCapLeft: 0
     // }),
     await Team.create({
       name: 'Heat',
       logo: 'https://fr.global.nba.com/media/img/teams/00/logos/MIA_logo.svg',
-      UserUuid: uuid
+      UserUuid: uuid,
+      salaryCapLeft: 0
     }),
     await Team.create({
       name: 'Celtics',
       logo: 'https://fr.global.nba.com/media/img/teams/00/logos/BOS_logo.svg',
-      UserUuid: uuid
+      UserUuid: uuid,
+      salaryCapLeft: 0
     }),
     await Team.create({
       name: 'Rockets',
       logo: 'https://fr.global.nba.com/media/img/teams/00/logos/HOU_logo.svg',
-      UserUuid: uuid
+      UserUuid: uuid,
+      salaryCapLeft: 0
     })
   await Team.create({
     name: 'Mavs',
     logo: 'https://fr.global.nba.com/media/img/teams/00/logos/DAL_logo.svg',
-    UserUuid: uuid
+    UserUuid: uuid,
+    salaryCapLeft: 0
   })
   const lakers = await Team.findOne({
     where: {
