@@ -11,7 +11,8 @@ const Team = sequelizeInstance.define('Team', {
   },
   name: Sequelize.STRING,
   logo: Sequelize.STRING,
-  choice: Sequelize.BOOLEAN
+  choice: Sequelize.BOOLEAN,
+  salaryCapLeft: Sequelize.FLOAT
 })
 
 module.exports = Team
