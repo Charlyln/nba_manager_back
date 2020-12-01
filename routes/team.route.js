@@ -173,7 +173,7 @@ teams.post('/salaryCap/:UserUuid/:TeamUuid', async (req, res) => {
   const { UserUuid, TeamUuid } = req.params
   try {
     const teams = await putSalaryCapLeft(UserUuid, TeamUuid)
-    res.status(201).json(teams)
+    res.status(200).json(teams)
   } catch (err) {
     res.status(422).json(err)
   }
