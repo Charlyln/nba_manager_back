@@ -24,6 +24,22 @@ const Player = sequelizeInstance.define('Player', {
   pasMax: Sequelize.FLOAT,
   salary: Sequelize.INTEGER,
   contractLeft: Sequelize.INTEGER,
+  contractYear1: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  contractYear2: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  contractYear3: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+  contractYear4: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
   age: Sequelize.INTEGER,
   isRookie: {
     type: Sequelize.BOOLEAN,
