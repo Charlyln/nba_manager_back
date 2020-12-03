@@ -22,6 +22,10 @@ const Player = sequelizeInstance.define('Player', {
   pasBeg: Sequelize.FLOAT,
   pasMin: Sequelize.FLOAT,
   pasMax: Sequelize.FLOAT,
+  blkMin: Sequelize.FLOAT,
+  blkMax: Sequelize.FLOAT,
+  stlMin: Sequelize.FLOAT,
+  stlMax: Sequelize.FLOAT,
   salary: Sequelize.INTEGER,
   contractLeft: Sequelize.INTEGER,
   contractYear1: {

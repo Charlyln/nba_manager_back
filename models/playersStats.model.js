@@ -12,6 +12,8 @@ const PlayerStats = sequelizeInstance.define('PlayerStats', {
   pts: Sequelize.INTEGER,
   reb: Sequelize.INTEGER,
   pas: Sequelize.INTEGER,
+  blk: Sequelize.INTEGER,
+  stl: Sequelize.INTEGER,
   teamIdAtTheGame: Sequelize.STRING
 })
 
