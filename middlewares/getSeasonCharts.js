@@ -56,7 +56,27 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
     return object
   })
 
-  const object = [ptsArray, rebArray, pasArray]
+  const blkArray = team.Players.map((player) => {
+    const arrayFiltered = player.PlayerStats.map((stat) => stat.blk)
+
+    const object = {
+      name: player.firstName + ' ' + player.lastName,
+      data: arrayFiltered
+    }
+    return object
+  })
+
+  const stlArray = team.Players.map((player) => {
+    const arrayFiltered = player.PlayerStats.map((stat) => stat.stl)
+
+    const object = {
+      name: player.firstName + ' ' + player.lastName,
+      data: arrayFiltered
+    }
+    return object
+  })
+
+  const object = [ptsArray, rebArray, pasArray, blkArray, stlArray]
   return object
 }
 
