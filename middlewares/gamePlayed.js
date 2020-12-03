@@ -44,11 +44,20 @@ const gamePlayed = async (uuid) => {
       )
       arrayTeam1.push(playerScore)
 
+      const playerReb = Math.floor(
+        Math.random() * (player.rebMax - player.rebMin) + player.rebMin
+      )
+      const playerPas = Math.floor(
+        Math.random() * (player.pasMax - player.pasMin) + player.pasMin
+      )
+
       try {
         const playerstats = await PlayerStats.create({
           PlayerUuid: player.uuid,
           GameUuid: uuid,
           pts: playerScore,
+          reb: playerReb,
+          pas: playerPas,
           UserUuid: game.UserUuid,
           teamIdAtTheGame: game.TeamUuid
         })
@@ -67,11 +76,20 @@ const gamePlayed = async (uuid) => {
       )
       arrayTeam2.push(playerScore)
 
+      const playerReb = Math.floor(
+        Math.random() * (player.rebMax - player.rebMin) + player.rebMin
+      )
+      const playerPas = Math.floor(
+        Math.random() * (player.pasMax - player.pasMin) + player.pasMin
+      )
+
       try {
         const playerstats = await PlayerStats.create({
           PlayerUuid: player.uuid,
           GameUuid: uuid,
           pts: playerScore,
+          reb: playerReb,
+          pas: playerPas,
           UserUuid: game.UserUuid,
           teamIdAtTheGame: game.Visitor.TeamUuid
         })
