@@ -71,6 +71,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 15,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 15
   })
   await Player.create({
@@ -96,6 +100,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 15,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 15
   })
   await Player.create({
@@ -121,6 +129,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 15,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 15
   })
   await Player.create({
@@ -146,6 +158,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 15,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 15
   })
   await Player.create({
@@ -171,6 +187,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 15,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 15
   })
 
@@ -203,6 +223,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 9,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -228,6 +252,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 2,
     rebMax: 5,
     pasMin: 2,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 7
   })
   await Player.create({
@@ -253,6 +281,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 2,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 5
   })
   await Player.create({
@@ -278,6 +310,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 8,
     rebMax: 12,
     pasMin: 7,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -303,6 +339,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 8,
     rebMax: 13,
     pasMin: 2,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 4
   })
   const rockets = await Team.findOne({
@@ -334,6 +374,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -359,6 +403,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -384,6 +432,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -409,6 +461,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -434,6 +490,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   const mavs = await Team.findOne({
@@ -465,6 +525,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -490,6 +554,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -515,6 +583,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -540,6 +612,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -565,6 +641,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   const celtics = await Team.findOne({
@@ -596,6 +676,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -621,6 +705,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -646,6 +734,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -671,6 +763,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -696,6 +792,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   const heat = await Team.findOne({
@@ -727,6 +827,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -752,6 +856,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -777,6 +885,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -802,6 +914,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -827,6 +943,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -854,6 +974,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -881,6 +1005,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -906,6 +1034,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -931,6 +1063,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -956,6 +1092,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -981,6 +1121,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -1006,6 +1150,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -1031,6 +1179,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -1056,6 +1208,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -1081,6 +1237,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
   await Player.create({
@@ -1105,6 +1265,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 12,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 12
   })
 
@@ -1132,6 +1296,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
@@ -1157,6 +1325,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
@@ -1182,6 +1354,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
@@ -1208,6 +1384,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
@@ -1233,6 +1413,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
@@ -1258,6 +1442,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
@@ -1283,6 +1471,10 @@ const teamsPlayersCreation = async (uuid) => {
     rebMin: 5,
     rebMax: 8,
     pasMin: 5,
+    blkMin: 0,
+    blkMax: 5,
+    stlMin: 1,
+    stlMax: 5,
     pasMax: 8,
     isRookie: true
   })
