@@ -51,6 +51,13 @@ const gamePlayed = async (uuid) => {
         Math.random() * (player.pasMax - player.pasMin) + player.pasMin
       )
 
+      const playerBlk = Math.floor(
+        Math.random() * (player.blkMax - player.blkMin) + player.blkMin
+      )
+      const playerStl = Math.floor(
+        Math.random() * (player.stlMax - player.stlMin) + player.stlMin
+      )
+
       try {
         const playerstats = await PlayerStats.create({
           PlayerUuid: player.uuid,
@@ -58,6 +65,8 @@ const gamePlayed = async (uuid) => {
           pts: playerScore,
           reb: playerReb,
           pas: playerPas,
+          blk: playerBlk,
+          stl: playerStl,
           UserUuid: game.UserUuid,
           teamIdAtTheGame: game.TeamUuid
         })
@@ -82,6 +91,12 @@ const gamePlayed = async (uuid) => {
       const playerPas = Math.floor(
         Math.random() * (player.pasMax - player.pasMin) + player.pasMin
       )
+      const playerBlk = Math.floor(
+        Math.random() * (player.blkMax - player.blkMin) + player.blkMin
+      )
+      const playerStl = Math.floor(
+        Math.random() * (player.stlMax - player.stlMin) + player.stlMin
+      )
 
       try {
         const playerstats = await PlayerStats.create({
@@ -90,6 +105,8 @@ const gamePlayed = async (uuid) => {
           pts: playerScore,
           reb: playerReb,
           pas: playerPas,
+          blk: playerBlk,
+          stl: playerStl,
           UserUuid: game.UserUuid,
           teamIdAtTheGame: game.Visitor.TeamUuid
         })
