@@ -20,14 +20,17 @@ const GamesDataCreation2 = async (uuid) => {
     UserUuid: uuid
   })
 
+  let date = 0
+
   let results = Promise.all(
     teams.map(async (team, i) => {
       visitors
         .filter((visitor) => team.uuid !== visitor.TeamUuid)
-        .map(async (visitor) => {
+        .map(async (visitor, i) => {
+          date = 1 + date
           try {
             const res = await Game.create({
-              date: i,
+              date: date,
               TeamUuid: team.uuid,
               VisitorUuid: visitor.uuid,
               UserUuid: uuid,
@@ -41,7 +44,6 @@ const GamesDataCreation2 = async (uuid) => {
   )
 
   return season
-
 }
 
 module.exports = GamesDataCreation2
