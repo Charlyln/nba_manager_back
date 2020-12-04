@@ -27,51 +27,71 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
   })
 
   const ptsArray = team.Players.map((player) => {
-    const arrayFiltered = player.PlayerStats.map((stat) => stat.pts)
+    const arrayFiltered = player.PlayerStats.sort(function (a, b) {
+      return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
+    })
+
+    const finalArray = arrayFiltered.map((stat) => stat.pts)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
-      data: arrayFiltered
+      data: finalArray
     }
     return object
   })
 
   const rebArray = team.Players.map((player) => {
-    const arrayFiltered = player.PlayerStats.map((stat) => stat.reb)
+    const arrayFiltered = player.PlayerStats.sort(function (a, b) {
+      return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
+    }).map((stat) => stat.reb)
+
+    const finalArray = arrayFiltered.map((stat) => stat.pts)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
-      data: arrayFiltered
+      data: finalArray
     }
     return object
   })
 
   const pasArray = team.Players.map((player) => {
-    const arrayFiltered = player.PlayerStats.map((stat) => stat.pas)
+    const arrayFiltered = player.PlayerStats.sort(function (a, b) {
+      return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
+    }).map((stat) => stat.pas)
+
+    const finalArray = arrayFiltered.map((stat) => stat.pts)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
-      data: arrayFiltered
+      data: finalArray
     }
     return object
   })
 
   const blkArray = team.Players.map((player) => {
-    const arrayFiltered = player.PlayerStats.map((stat) => stat.blk)
+    const arrayFiltered = player.PlayerStats.sort(function (a, b) {
+      return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
+    }).map((stat) => stat.blk)
+
+    const finalArray = arrayFiltered.map((stat) => stat.pts)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
-      data: arrayFiltered
+      data: finalArray
     }
     return object
   })
 
   const stlArray = team.Players.map((player) => {
-    const arrayFiltered = player.PlayerStats.map((stat) => stat.stl)
+    const arrayFiltered = player.PlayerStats.sort(function (a, b) {
+      return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
+    }).map((stat) => stat.stl)
+
+    const finalArray = arrayFiltered.map((stat) => stat.pts)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
-      data: arrayFiltered
+      data: finalArray
     }
     return object
   })
