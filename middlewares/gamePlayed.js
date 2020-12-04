@@ -146,8 +146,8 @@ const gamePlayed = async (uuid) => {
       {
         team1: totalTeam1 + 1,
         team2: totalTeam2,
-        teamWin: game.Visitor.TeamUuid,
-        teamLoose: game.TeamUuid
+        teamWin: game.TeamUuid,
+        teamLoose: game.Visitor.TeamUuid
       },
       { where: { uuid: gameId1 } }
     )
