@@ -14,7 +14,17 @@ const changePlayersContract = async (UserUuid) => {
         try {
           const res = await Player.update(
             {
-              contractLeft: player.contractLeft - 1
+              contractLeft: player.contractLeft - 1,
+              contractYear1: !player.contractYear2
+                ? null
+                : player.contractYear1,
+              contractYear2: !player.contractYear3
+                ? null
+                : player.contractYear2,
+              contractYear3: !player.contractYear4
+                ? null
+                : player.contractYear3,
+              contractYear4: null
             },
             { where: { uuid: player.uuid } }
           )
