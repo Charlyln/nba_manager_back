@@ -9,6 +9,7 @@ const changePlayersContract = require('../middlewares/changePlayersContract')
 const retirements = require('../middlewares/retirements')
 const playerOptions = require('../middlewares/playerOptions')
 const getBestPlayers = require('../middlewares/getBestPlayers')
+const putProgressPlayer = require('../middlewares/putProgressPlayer')
 
 players.get('/', async (req, res) => {
   try {
@@ -131,6 +132,16 @@ players.post('/playerOptions/:TeamUuid', async (req, res) => {
   try {
     const playerOption = await playerOptions(TeamUuid)
     res.status(201).json(playerOption)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+players.post('/progressValue/:UserUuid/:SeasonUuid', async (req, res) => {
+  const { UserUuid, SeasonUuid } = req.params
+  try {
+    const progressValue = await putProgressPlayer(UserUuid, SeasonUuid)
+    res.status(201).json(progressValue)
   } catch (err) {
     res.status(422).json(err)
   }
