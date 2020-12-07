@@ -1,5 +1,7 @@
 const express = require('express')
+const adjustPlayerValue = require('../middlewares/adjustPlayerValue')
 const getProgressCharts = require('../middlewares/getProgressCharts')
+const putProgressValuePerSeason = require('../middlewares/putProgressValuePerSeason')
 const progress = express.Router()
 const Player = require('../models/player.model')
 const Progress = require('../models/progress.model')
@@ -23,6 +25,32 @@ progress.post('/charts/:TeamUuid', async (req, res) => {
   const TeamUuid = req.params.TeamUuid
   try {
     const progress = await getProgressCharts(TeamUuid)
+    res.status(200).json(progress)
+  } catch (error) {
+    res.status(400).json({
+      status: 'error',
+      message: 'Invalid request'
+    })
+  }
+})
+
+progress.post('/season/:UserUuid/:SeasonUuid', async (req, res) => {
+  const { UserUuid, SeasonUuid } = req.params
+  try {
+    const progress = await putProgressValuePerSeason(UserUuid, SeasonUuid)
+    res.status(200).json(progress)
+  } catch (error) {
+    res.status(400).json({
+      status: 'error',
+      message: 'Invalid request'
+    })
+  }
+})
+
+progress.post('/adjsutPlayerValue/:UserUuid', async (req, res) => {
+  const { UserUuid } = req.params
+  try {
+    const progress = await adjustPlayerValue(UserUuid)
     res.status(200).json(progress)
   } catch (error) {
     res.status(400).json({
