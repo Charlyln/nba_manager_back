@@ -43,9 +43,9 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
   const rebArray = team.Players.map((player) => {
     const arrayFiltered = player.PlayerStats.sort(function (a, b) {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
-    }).map((stat) => stat.reb)
+    })
 
-    const finalArray = arrayFiltered.map((stat) => stat.pts)
+    const finalArray = arrayFiltered.map((stat) => stat.reb)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -57,9 +57,9 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
   const pasArray = team.Players.map((player) => {
     const arrayFiltered = player.PlayerStats.sort(function (a, b) {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
-    }).map((stat) => stat.pas)
+    })
 
-    const finalArray = arrayFiltered.map((stat) => stat.pts)
+    const finalArray = arrayFiltered.map((stat) => stat.pas)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -71,9 +71,9 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
   const blkArray = team.Players.map((player) => {
     const arrayFiltered = player.PlayerStats.sort(function (a, b) {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
-    }).map((stat) => stat.blk)
+    })
 
-    const finalArray = arrayFiltered.map((stat) => stat.pts)
+    const finalArray = arrayFiltered.map((stat) => stat.blk)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -85,9 +85,9 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
   const stlArray = team.Players.map((player) => {
     const arrayFiltered = player.PlayerStats.sort(function (a, b) {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
-    }).map((stat) => stat.stl)
+    })
 
-    const finalArray = arrayFiltered.map((stat) => stat.pts)
+    const finalArray = arrayFiltered.map((stat) => stat.stl)
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
