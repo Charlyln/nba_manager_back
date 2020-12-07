@@ -12,7 +12,7 @@ const Player = sequelizeInstance.define('Player', {
   firstName: Sequelize.STRING,
   lastName: Sequelize.STRING,
   photo: Sequelize.STRING,
-  value:  Sequelize.FLOAT,
+  value: Sequelize.FLOAT,
   ptsBeg: Sequelize.FLOAT,
   ptsMin: Sequelize.FLOAT,
   ptsMax: Sequelize.FLOAT,
@@ -50,6 +50,10 @@ const Player = sequelizeInstance.define('Player', {
   isRookie: {
     type: Sequelize.BOOLEAN,
     allowNull: true
+  },
+  rookieTeam: {
+    type: Sequelize.STRING,
+    defaultValue: null
   }
 })
 
