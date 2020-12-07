@@ -10,6 +10,7 @@ const retirements = require('../middlewares/retirements')
 const playerOptions = require('../middlewares/playerOptions')
 const getBestPlayers = require('../middlewares/getBestPlayers')
 const putProgressPlayer = require('../middlewares/putProgressPlayer')
+const getMyRookies = require('../middlewares/getMyRookies')
 
 players.get('/', async (req, res) => {
   try {
@@ -137,6 +138,16 @@ players.post('/playerOptions/:TeamUuid', async (req, res) => {
   }
 })
 
+players.post('/myrookies/:UserUuid/:rookieTeam', async (req, res) => {
+  const { UserUuid, rookieTeam } = req.params
+  try {
+    const rookies = await getMyRookies(UserUuid, rookieTeam)
+    res.status(201).json(rookies)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
 players.post('/progressValue/:UserUuid/:SeasonUuid', async (req, res) => {
   const { UserUuid, SeasonUuid } = req.params
   try {
@@ -166,7 +177,8 @@ players.put('/:uuid', async (req, res) => {
     contractYear1,
     contractYear2,
     contractYear3,
-    contractYear4
+    contractYear4,
+    rookieTeam
   } = req.body
   try {
     const players = await Player.update(
@@ -187,7 +199,8 @@ players.put('/:uuid', async (req, res) => {
         contractYear1,
         contractYear2,
         contractYear3,
-        contractYear4
+        contractYear4,
+        rookieTeam
       },
       { where: { uuid } }
     )
