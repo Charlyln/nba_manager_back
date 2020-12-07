@@ -6,6 +6,7 @@ const PlayerStats = require('../models/playersStats.model')
 const Player = require('../models/player.model')
 const Team = require('../models/team.model')
 const getStatsHistory = require('../middlewares/getStatsHistory')
+const getMyDraftPick = require('../middlewares/getMyDraftPick')
 
 // include: [
 //   { model: Likes },
@@ -97,6 +98,19 @@ seasons.get('/history/:UserUuid/:SeasonUuid', async (req, res) => {
 //     })
 //   }
 // })
+
+seasons.post(
+  '/mydraftpick/:SeasonUuid/:TeamUuid/:UserUuid',
+  async (req, res) => {
+    const { SeasonUuid, TeamUuid, UserUuid } = req.params
+    try {
+      const seasons = await getMyDraftPick(SeasonUuid, TeamUuid, UserUuid)
+      res.status(201).json(seasons)
+    } catch (err) {
+      res.status(422).json(err)
+    }
+  }
+)
 
 seasons.post('/', async (req, res) => {
   const { startYear, endYear, UserUuid } = req.body
