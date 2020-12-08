@@ -51,9 +51,9 @@ const Player = sequelizeInstance.define('Player', {
     type: Sequelize.BOOLEAN,
     allowNull: true
   },
-  rookieTeam: {
-    type: Sequelize.STRING,
-    defaultValue: null
+  isBench: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
