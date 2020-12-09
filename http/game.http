@@ -1,8 +1,7 @@
-POST http://localhost:8080/games/ffb016e0-3b90-44e0-bbec-cd3fa9e57f8b/unplayed
+POST http://localhost:8080/progress/season/e54c0511-d689-41a1-a9b2-06f7d6588229/fa08fb68-4b1c-42cf-b2d3-2abdbf03d5c4
 ###
-POST http://localhost:8080/dataCreation/games/520d23a7-a170-47ec-8b73-4ef1eb2bf39
-Content-Type: application/json
-    
+POST http://localhost:8080/progress/adjsutPlayerValue/e54c0511-d689-41a1-a9b2-06f7d6588229
+
 ###
 POST http://localhost:8080/seasons HTTP/1.1
 Content-Type: application/json
