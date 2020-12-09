@@ -2,6 +2,7 @@ const Team = require('../models/team.model')
 const Player = require('../models/player.model')
 const PlayerStats = require('../models/playersStats.model')
 const Game = require('../models/game.model')
+const Visitor = require('../models/visitor.model')
 
 const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
   const team = await Team.findOne({
@@ -26,12 +27,41 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
     ]
   })
 
+  const games = await Game.findAll({
+    where: {
+      SeasonUuid
+    },
+    include: [
+      {
+        model: Visitor
+      }
+    ]
+  })
+
+  const gamesFiltered = games
+    .filter(
+      (game) =>
+        game.team1 &&
+        (game.TeamUuid === TeamUuid || game.Visitor.TeamUuid === TeamUuid)
+    )
+    .sort(function (a, b) {
+      return new Date(Number(a.date)) - new Date(Number(b.date))
+    })
+
   const ptsArray = team.Players.map((player) => {
     const arrayFiltered = player.PlayerStats.sort(function (a, b) {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
     })
 
-    const finalArray = arrayFiltered.map((stat) => stat.pts)
+    const finalArray = gamesFiltered.map((game) => {
+      const statFind = arrayFiltered.find((stat) => stat.GameUuid === game.uuid)
+
+      if (statFind) {
+        return statFind.pts
+      } else {
+        return null
+      }
+    })
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -45,7 +75,15 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
     })
 
-    const finalArray = arrayFiltered.map((stat) => stat.reb)
+    const finalArray = gamesFiltered.map((game) => {
+      const statFind = arrayFiltered.find((stat) => stat.GameUuid === game.uuid)
+
+      if (statFind) {
+        return statFind.reb
+      } else {
+        return null
+      }
+    })
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -59,7 +97,15 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
     })
 
-    const finalArray = arrayFiltered.map((stat) => stat.pas)
+    const finalArray = gamesFiltered.map((game) => {
+      const statFind = arrayFiltered.find((stat) => stat.GameUuid === game.uuid)
+
+      if (statFind) {
+        return statFind.pas
+      } else {
+        return null
+      }
+    })
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -73,7 +119,15 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
     })
 
-    const finalArray = arrayFiltered.map((stat) => stat.blk)
+    const finalArray = gamesFiltered.map((game) => {
+      const statFind = arrayFiltered.find((stat) => stat.GameUuid === game.uuid)
+
+      if (statFind) {
+        return statFind.blk
+      } else {
+        return null
+      }
+    })
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
@@ -87,7 +141,15 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
       return new Date(Number(a.Game.date)) - new Date(Number(b.Game.date))
     })
 
-    const finalArray = arrayFiltered.map((stat) => stat.stl)
+    const finalArray = gamesFiltered.map((game) => {
+      const statFind = arrayFiltered.find((stat) => stat.GameUuid === game.uuid)
+
+      if (statFind) {
+        return statFind.stl
+      } else {
+        return null
+      }
+    })
 
     const object = {
       name: player.firstName + ' ' + player.lastName,
