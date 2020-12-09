@@ -13,7 +13,7 @@ const putSalaryCapLeft = async (UserUuid, TeamUuid) => {
     ]
   })
 
-  const salaryTotal = teams.Players.reduce((a, v) => (a = a + v.salary), 0)
+  const salaryTotal = teams.Players.reduce((a, v) => (a = a + v.contractYear1), 0)
 
   const salaryLeft = 100000000 - salaryTotal
 
