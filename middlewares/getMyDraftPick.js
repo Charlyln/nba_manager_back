@@ -27,7 +27,8 @@ const getMyDraftPick = async (SeasonUuid, TeamUuid, UserUuid) => {
   })
 
   const myPickFound = (team) => team.uuid === TeamUuid
-  const myPick = teamSorted.findIndex(myPickFound) + 1
+  const myRank = teamSorted.findIndex(myPickFound) + 1
+  const myPick = teams.length - myRank + 1
 
   return myPick
 }
