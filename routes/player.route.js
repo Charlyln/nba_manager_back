@@ -13,6 +13,7 @@ const putProgressPlayer = require('../middlewares/putProgressPlayer')
 const getMyRookies = require('../middlewares/getMyRookies')
 const putResignPlayers = require('../middlewares/putResignPlayers')
 const putUpdateStatsBeg = require('../middlewares/putUpdateStatsBeg')
+const putRookies = require('../middlewares/putRookies')
 
 players.get('/', async (req, res) => {
   try {
@@ -174,6 +175,17 @@ players.post('/updateStatsBeg/:UserUuid', async (req, res) => {
   const { UserUuid } = req.params
   try {
     const resign = await putUpdateStatsBeg(UserUuid)
+    res.status(201).json(resign)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+players.post('/putRookies/:UserUuid/:TeamUuid', async (req, res) => {
+  const { UserUuid, TeamUuid } = req.params
+  const { rookieUuid, SeasonUuid } = req.body
+  try {
+    const resign = await putRookies(UserUuid, TeamUuid, rookieUuid, SeasonUuid)
     res.status(201).json(resign)
   } catch (err) {
     res.status(422).json(err)
