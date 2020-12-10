@@ -7,8 +7,10 @@ const putProgressValuePerGame = async (UserUuid) => {
     }
   })
 
+  const playersFiltered = players.filter((player) => !player.isRookie)
+
   let results = Promise.all(
-    players.map(async (player) => {
+    playersFiltered.map(async (player) => {
       const {
         ptsMax,
         rebMin,

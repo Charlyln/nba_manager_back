@@ -20,8 +20,10 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
     }
   })
 
+  const playersFiltered = players.filter((player) => !player.isRookie)
+
   let results = Promise.all(
-    players.map(async (player) => {
+    playersFiltered.map(async (player) => {
       const difference = player.potential - player.value
       let multiplicatorIfPotential
       if (player.potential <= 93 && difference < 3.6 && difference >= 0) {
