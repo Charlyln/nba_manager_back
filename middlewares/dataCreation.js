@@ -56,7 +56,7 @@ const teamsPlayersCreation = async (uuid) => {
     TeamUuid: lakers.dataValues.uuid,
     UserUuid: uuid,
     value: 98,
-    ptsBeg: 15,
+    ptsBeg: 17,
     salary: 37000000,
     contractLeft: 2,
     contractYear1: 37000000,
