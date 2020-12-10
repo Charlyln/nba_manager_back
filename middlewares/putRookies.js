@@ -49,7 +49,7 @@ const putRookies = async (UserUuid, TeamUuid, rookieUuid, SeasonUuid) => {
   })
 
   const filteredPlayers = players
-    .filter((player) => player.uuid !== rookieUuid)
+    .filter((player) => player.uuid !== rookieUuid && player.age === 20)
     .sort(function (a, b) {
       return new Date(b.value) - new Date(a.value)
     })
