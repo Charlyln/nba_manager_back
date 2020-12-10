@@ -66,12 +66,19 @@ const putRookies = async (UserUuid, TeamUuid, rookieUuid, SeasonUuid) => {
     return new Date(getWin(a)) - new Date(getWin(b))
   })
 
+  const allTeamSorted = teams.sort(function (a, b) {
+    return new Date(getWin(a)) - new Date(getWin(b))
+  })
+
+  const allData = []
+
   let results = Promise.all(
     filteredPlayers.map(async (player, i) => {
       try {
         const team = teamSorted[i]
 
         if (team) {
+          allData.push({ player, team })
           const res = await Player.update(
             {
               TeamUuid: team.uuid,
@@ -99,6 +106,14 @@ const putRookies = async (UserUuid, TeamUuid, rookieUuid, SeasonUuid) => {
       }
     })
   )
+
+  allData.push({ player: myRookie, team })
+
+  const allDataSorted = allData.sort(function (a, b) {
+    return new Date(getWin(a.team)) - new Date(getWin(b.team))
+  })
+
+  return { allDataSorted }
 }
 
 module.exports = putRookies
