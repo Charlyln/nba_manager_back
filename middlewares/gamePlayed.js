@@ -43,7 +43,11 @@ const gamePlayed = async (uuid) => {
         const playerScore = Math.floor(
           Math.random() * (player.ptsMax - player.ptsMin) + player.ptsMin
         )
-        arrayTeam1.push(playerScore)
+        if (playerScore < 0) {
+          arrayTeam1.push(0)
+        } else {
+          arrayTeam1.push(playerScore)
+        }
 
         const playerReb = Math.floor(
           Math.random() * (player.rebMax - player.rebMin) + player.rebMin
@@ -63,11 +67,11 @@ const gamePlayed = async (uuid) => {
           const playerstats = await PlayerStats.create({
             PlayerUuid: player.uuid,
             GameUuid: uuid,
-            pts: playerScore,
-            reb: playerReb,
-            pas: playerPas,
-            blk: playerBlk,
-            stl: playerStl,
+            pts: playerScore < 0 ? 0 : playerScore,
+            reb: playerReb < 0 ? 0 : playerReb,
+            pas: playerPas < 0 ? 0 : playerPas,
+            blk: playerBlk < 0 ? 0 : playerBlk,
+            stl: playerStl < 0 ? 0 : playerStl,
             UserUuid: game.UserUuid,
             teamIdAtTheGame: game.TeamUuid
           })
@@ -86,7 +90,11 @@ const gamePlayed = async (uuid) => {
         const playerScore = Math.floor(
           Math.random() * (player.ptsMax - player.ptsMin) + player.ptsMin
         )
-        arrayTeam2.push(playerScore)
+        if (playerScore < 0) {
+          arrayTeam2.push(0)
+        } else {
+          arrayTeam2.push(playerScore)
+        }
 
         const playerReb = Math.floor(
           Math.random() * (player.rebMax - player.rebMin) + player.rebMin
@@ -105,11 +113,11 @@ const gamePlayed = async (uuid) => {
           const playerstats = await PlayerStats.create({
             PlayerUuid: player.uuid,
             GameUuid: uuid,
-            pts: playerScore,
-            reb: playerReb,
-            pas: playerPas,
-            blk: playerBlk,
-            stl: playerStl,
+            pts: playerScore < 0 ? 0 : playerScore,
+            reb: playerReb < 0 ? 0 : playerReb,
+            pas: playerPas < 0 ? 0 : playerPas,
+            blk: playerBlk < 0 ? 0 : playerBlk,
+            stl: playerStl < 0 ? 0 : playerStl,
             UserUuid: game.UserUuid,
             teamIdAtTheGame: game.Visitor.TeamUuid
           })
