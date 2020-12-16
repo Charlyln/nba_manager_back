@@ -8,9 +8,13 @@ const earnedTrophy = async (UserUuid, name) => {
     }
   })
 
+  var date = new Date()
+  var dateToString = date.toString()
+
   const res = await Trophy.update(
     {
-      earned: true
+      earned: true,
+      earnedAt: dateToString
     },
     { where: { uuid: trophyFind.dataValues.uuid } }
   )
