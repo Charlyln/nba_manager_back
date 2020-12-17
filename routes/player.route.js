@@ -250,14 +250,4 @@ players.put('/:uuid', async (req, res) => {
   }
 })
 
-// players.delete('/:uuid', async (req, res) => {
-//   const uuid = req.params.uuid
-//   try {
-//     await Travel.destroy({ where: { uuid, age } })
-//     res.status(204).send('Votre travel a été supprimé')
-//   } catch (err) {
-//     res.status(422).json(err)
-//   }
-// })
-
 module.exports = players

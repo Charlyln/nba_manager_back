@@ -55,19 +55,3 @@ Season.belongsTo(User)
 
 User.hasMany(Trophy, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Trophy.belongsTo(User)
-
-// Team.hasMany(Game, { as: 'Visitor',foreignKey: { allowNull: false  } })
-// Game.belongsTo(Team)
-
-// Team.belongsToMany(Team, {
-//   as: 'Visitor',
-//   through: Game
-// })
-
-// Team.belongsToMany(Team, { as: 'Visitor', through: Game })
-
-// Team.belongsToMany(Game, { through: 'Message' })
-// Game.belongsToMany(Team, { through: 'Message' })
-
-// Team.belongsToMany(Visitor, { through: GameTeam });
-// Game.belongsToMany(Team, { through: GameTeam });

@@ -13,7 +13,10 @@ const putSalaryCapLeft = async (UserUuid, TeamUuid) => {
     ]
   })
 
-  const salaryTotal = teams.Players.reduce((a, v) => (a = a + v.contractYear1), 0)
+  const salaryTotal = teams.Players.reduce(
+    (a, v) => (a = a + v.contractYear1),
+    0
+  )
 
   const salaryLeft = 100000000 - salaryTotal
 
@@ -28,19 +31,6 @@ const putSalaryCapLeft = async (UserUuid, TeamUuid) => {
     console.log(err)
   }
 
-  //   b.PlayerStats.reduce((a, v) => (a = a + v.pts), 0)
-
-  //   const res = Promise.all(
-  //     game
-  //       .filter((game) => game.PlayerStats.length < 1)
-  //       .map(async (game) => {
-  //         try {
-  //           return gamePlayed(game.uuid)
-  //         } catch (err) {
-  //           console.log(err)
-  //         }
-  //       })
-  //   )
   return { salaryTotal, salaryLeft, teams }
 }
 

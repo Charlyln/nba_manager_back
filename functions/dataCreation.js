@@ -468,37 +468,6 @@ const teamsPlayersCreation = async (uuid) => {
     potential: 85,
     pasMax: 2
   })
-  // await Player.create({
-  //   firstName: 'Robert',
-  //   lastName: 'Covington',
-  //   photo:
-  //     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2490620.png&w=350&h=254',
-  //   TeamUuid: rockets.dataValues.uuid,
-  //   UserUuid: uuid,
-  //   value: 45.5,
-  //   ptsBeg: 5,
-  //   salary: 11000000,
-  //   contractLeft: 2,
-  //   contractYear1: 11000000,
-  //   contractYear2: 11000000,
-  //   contractYear3: 0,
-  //   contractYear4: 0,
-  //   age: 28,
-  //   rebBeg: 2,
-  //   pasBeg: 2,
-  //   ptsMin: 5,
-  //   ptsMax: 15,
-  //   rebMin: 2,
-  //   rebMax: 6,
-  //   pasMin: 2,
-  //   blkMin: 0,
-  //   blkMax: 1,
-  //   stlMin: 0,
-  //   stlMax: 1,
-  //   valueAdjust: 34.5,
-  //   potential: 85,
-  //   pasMax: 6
-  // })
   await Player.create({
     firstName: 'Eric',
     lastName: 'Gordon',
@@ -561,37 +530,7 @@ const teamsPlayersCreation = async (uuid) => {
     potential: 96,
     pasMax: 10
   })
-  // await Player.create({
-  //   firstName: 'Russell',
-  //   lastName: 'Westbrook',
-  //   photo:
-  //     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3468.png&w=350&h=254',
-  //   TeamUuid: rockets.dataValues.uuid,
-  //   UserUuid: uuid,
-  //   value: 45.5,
-  //   ptsBeg: 5,
-  //   salary: 38000000,
-  //   contractLeft: 2,
-  //   contractYear1: 38000000,
-  //   contractYear2: 38000000,
-  //   contractYear3: 0,
-  //   contractYear4: 0,
-  //   age: 28,
-  //   rebBeg: 2,
-  //   pasBeg: 2,
-  //   ptsMin: 5,
-  //   ptsMax: 15,
-  //   rebMin: 2,
-  //   rebMax: 6,
-  //   pasMin: 2,
-  //   blkMin: 0,
-  //   blkMax: 1,
-  //   stlMin: 0,
-  //   stlMax: 1,
-  //   valueAdjust: 34.5,
-  //   potential: 85,
-  //   pasMax: 6
-  // })
+
   const mavs = await Team.findOne({
     where: {
       name: 'Mavs',
@@ -691,37 +630,7 @@ const teamsPlayersCreation = async (uuid) => {
     potential: 80,
     pasMax: 3
   })
-  // await Player.create({
-  //   firstName: 'Seth',
-  //   lastName: 'Curry',
-  //   photo:
-  //     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2326307.png&w=350&h=254',
-  //   TeamUuid: mavs.dataValues.uuid,
-  //   UserUuid: uuid,
-  //   value: 45.5,
-  //   ptsBeg: 5,
-  //   salary: 7000000,
-  //   contractLeft: 2,
-  //   contractYear1: 7000000,
-  //   contractYear2: 7000000,
-  //   contractYear3: 0,
-  //   contractYear4: 0,
-  //   age: 28,
-  //   rebBeg: 2,
-  //   pasBeg: 2,
-  //   ptsMin: 5,
-  //   ptsMax: 15,
-  //   rebMin: 2,
-  //   rebMax: 6,
-  //   pasMin: 2,
-  //   blkMin: 0,
-  //   blkMax: 1,
-  //   stlMin: 0,
-  //   stlMax: 1,
-  //   valueAdjust: 34.5,
-  //   potential: 85,
-  //   pasMax: 6
-  // })
+
   await Player.create({
     firstName: 'Josh',
     lastName: 'Richardson',
@@ -1108,38 +1017,6 @@ const teamsPlayersCreation = async (uuid) => {
     potential: 88,
     pasMax: 3
   })
-
-  // await Player.create({
-  //   firstName: 'Jae',
-  //   lastName: 'Crowder',
-  //   photo:
-  //     'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6581.png&w=350&h=254',
-  //   TeamUuid: heat.dataValues.uuid,
-  //   UserUuid: uuid,
-  //   value: 45.5,
-  //   ptsBeg: 5,
-  //   salary: 7000000,
-  //   contractLeft: 2,
-  //   contractYear1: 7000000,
-  //   contractYear2: 7000000,
-  //   contractYear3: 0,
-  //   contractYear4: 0,
-  //   age: 28,
-  //   rebBeg: 2,
-  //   pasBeg: 2,
-  //   ptsMin: 5,
-  //   ptsMax: 15,
-  //   rebMin: 2,
-  //   rebMax: 6,
-  //   pasMin: 2,
-  //   blkMin: 0,
-  //   blkMax: 1,
-  //   stlMin: 0,
-  //   stlMax: 1,
-  //   valueAdjust: 34.5,
-  //   potential: 85,
-  //   pasMax: 6
-  // })
 
   // free agents
 
@@ -1930,7 +1807,7 @@ const teamsPlayersCreation = async (uuid) => {
   // prospects 2022
 
   await Player.create({
-    firstName: 'Emoni', 
+    firstName: 'Emoni',
     lastName: 'Bates',
     photo: 'avatar',
     UserUuid: uuid,
@@ -1960,7 +1837,7 @@ const teamsPlayersCreation = async (uuid) => {
     isRookie: true
   })
   await Player.create({
-    firstName: 'Victor', 
+    firstName: 'Victor',
     lastName: 'Wembanyama',
     photo: 'avatar',
     UserUuid: uuid,
@@ -1990,7 +1867,7 @@ const teamsPlayersCreation = async (uuid) => {
     isRookie: true
   })
   await Player.create({
-    firstName: 'Chet', 
+    firstName: 'Chet',
     lastName: 'Holmgren',
     photo: 'avatar',
     UserUuid: uuid,
@@ -2021,7 +1898,7 @@ const teamsPlayersCreation = async (uuid) => {
   })
   await Player.create({
     firstName: 'Jaden',
-    lastName: 'Hardy', 
+    lastName: 'Hardy',
     photo: 'avatar',
     UserUuid: uuid,
     value: 45.5,
@@ -2050,7 +1927,7 @@ const teamsPlayersCreation = async (uuid) => {
     isRookie: true
   })
   await Player.create({
-    firstName: 'Paolo', 
+    firstName: 'Paolo',
     lastName: 'Banchero',
     photo: 'avatar',
     UserUuid: uuid,
@@ -2080,7 +1957,7 @@ const teamsPlayersCreation = async (uuid) => {
     isRookie: true
   })
   await Player.create({
-    firstName: 'Patrick', 
+    firstName: 'Patrick',
     lastName: 'Baldwin Jr.',
     photo: 'avatar',
     UserUuid: uuid,

@@ -4,7 +4,6 @@ const Visitor = require('../models/visitor.model')
 const Season = require('../models/season.model')
 
 const getMulitpledata = async (UserUuid, TeamUuid, SeasonUuid) => {
-  // Games
   const games = await Game.findAll({
     where: {
       UserUuid
@@ -24,20 +23,10 @@ const getMulitpledata = async (UserUuid, TeamUuid, SeasonUuid) => {
       (game.Visitor.TeamUuid === TeamUuid && game.team1 < game.team2)
   )
 
-  //   const gamesMyTeamPlayHome = games.filter(
-  //     (game) => game.team1 && game.TeamUuid === TeamUuid
-  //   )
-
-  //   const gamesMyTeamPlayOutside = games.filter(
-  //     (game) => game.Visitor.TeamUuid === TeamUuid
-  //   )
-
   const nbrGamePlayed = gamesPlayed.length
   const nbrGameWined = gamesWined.length
   const nbrGameLoosed = nbrGamePlayed - nbrGameWined
   const percentageWining = (nbrGameWined / nbrGamePlayed) * 100
-
-  // Seasons
 
   const seasons = await Season.findAll({
     where: {

@@ -88,30 +88,4 @@ trophies.post('/viewed/:UserUuid', async (req, res) => {
   }
 })
 
-// trophies.put('/:uuid', async (req, res) => {
-//   const { pseudo } = req.body
-//   const uuid = req.params.uuid
-//   try {
-//     const trophy = await Trophy.update(
-//       {
-//         pseudo
-//       },
-//       { where: { uuid } }
-//     )
-//     res.status(201).json(trophy)
-//   } catch (err) {
-//     res.status(422).json(err)
-//   }
-// })
-
-// trophies.delete('/:uuid', async (req, res) => {
-//   const uuid = req.params.uuid
-//   try {
-//     await Trophy.destroy({ where: { uuid } })
-//     res.status(204).send('trophy a été supprimé')
-//   } catch (err) {
-//     res.status(422).json(err)
-//   }
-// })
-
 module.exports = trophies

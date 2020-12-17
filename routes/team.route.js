@@ -131,16 +131,6 @@ teams.get('/:uuid', async (req, res) => {
   }
 })
 
-// teams.get('/myleague', async (req, res) => {
-//   const UserUuid = req.params.uuid
-//   try {
-//     const teams = await Team.findAll()
-//     res.status(200).json(teams)
-//   } catch (error) {
-//     res.status(400).json(err)
-//   }
-// })
-
 teams.put('/:uuid', async (req, res) => {
   const uuid = req.params.uuid
   const { choice } = req.body

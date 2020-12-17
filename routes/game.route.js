@@ -53,15 +53,6 @@ games.get('/:SeasonUuid/:TeamUuid', async (req, res) => {
     const games = await Game.findAll({
       where: {
         SeasonUuid
-
-        // [Game.or]: [
-        //   {
-        //     TeamUuid
-        //   }
-        // {
-        //   '$Visitor.TeamUuid$': TeamUuid
-        // }
-        // ]
       },
       include: [
         {
@@ -160,22 +151,6 @@ games.get('/:SeasonUuid', async (req, res) => {
     res.status(400).json(err)
   }
 })
-
-// games.post('/:SeasonUuid/unplayed', async (req, res) => {
-//   const { SeasonUuid } = req.params
-//   try {
-//     const games = await Game.findAll({
-//       where: {
-//         SeasonUuid,
-//         team1: null
-//       }
-//     })
-
-//     res.status(200).json(games)
-//   } catch (err) {
-//     res.status(400).json(err)
-//   }
-// })
 
 games.get('/', async (req, res) => {
   try {

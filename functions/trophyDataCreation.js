@@ -62,48 +62,6 @@ const trophiesCreation = async (uuid) => {
     color: 'bronze',
     isViewed: false
   })
-  // await Trophy.create({
-  //   name: 'Complete a season',
-  //   difficulty: 6,
-  //   earned: false,
-  //   UserUuid: uuid,
-  //   color: 'silver',
-  //   isViewed: false
-  // })
-  // await Trophy.create({
-  //   name: 'Increase a player stat up 99',
-  //   difficulty: 7,
-  //   earned: false,
-  //   UserUuid: uuid,
-  //   color: 'silver',
-  //   isViewed: false
-  // })
-  // await Trophy.create({
-  //   name: 'You have the MVP of the season',
-  //   difficulty: 8,
-  //   earned: false,
-  //   UserUuid: uuid,
-  //   color: 'gold',
-  //   isViewed: false
-  // })
-
-  // await Trophy.create({
-  //   name: 'Win the championship',
-  //   difficulty: 9,
-  //   earned: false,
-  //   UserUuid: uuid,
-  //   color: 'gold',
-  //   isViewed: false
-  // })
-
-  // await Trophy.create({
-  //   name: 'Win all games in a season',
-  //   difficulty: 10,
-  //   earned: false,
-  //   UserUuid: uuid,
-  //   color: 'gold',
-  //   isViewed: false
-  // })
 }
 
 module.exports = trophyDataCreation

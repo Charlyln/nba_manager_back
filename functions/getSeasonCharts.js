@@ -163,18 +163,3 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
 }
 
 module.exports = getSeasonCharts
-
-//   let maxs = []
-//   let mins = []
-
-// const playerMax = Math.max(...arrayFiltered)
-// maxs.push(playerMax)
-
-// const playerMin = Math.min(...arrayFiltered)
-// mins.push(playerMin)
-
-//   const max = Math.max(...maxs)
-
-//   const min = Math.min(...mins)
-
-//   return { array, max, min }

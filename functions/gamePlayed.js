@@ -164,22 +164,6 @@ const gamePlayed = async (uuid) => {
       { where: { uuid: gameId1 } }
     )
   }
-  //   // await PlayerStats.update(
-  //   //   {
-  //   //     pts: playerStat.dataValues.pts + 1
-  //   //   },
-  //   //   { where: { uuid: playerStat.dataValues.uuid } }
-  //   // )
-
-  //   // await Game.update(
-  //   //   {
-  //   //     team1: totalTeam1,
-  //   //     team2: totalTeam2,
-  //   //     teamWin: game.TeamUuid,
-  //   //     teamLoose: game.Visitor.TeamUuid
-  //   //   },
-  //   //   { where: { uuid: gameId1 } }
-  //   // )
 }
 
 module.exports = gamePlayed

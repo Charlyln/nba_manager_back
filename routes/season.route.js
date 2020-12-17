@@ -8,17 +8,6 @@ const Team = require('../models/team.model')
 const getStatsHistory = require('../functions/getStatsHistory')
 const getMyDraftPick = require('../functions/getMyDraftPick')
 
-// include: [
-//   { model: Likes },
-//   {
-//     model: User,
-//     include: [
-//       {
-//         model: Followers,
-//       },
-//     ],
-//   },
-
 seasons.get('/', async (req, res) => {
   try {
     const seasons = await Season.findAll()
@@ -87,18 +76,6 @@ seasons.get('/history/:UserUuid/:SeasonUuid', async (req, res) => {
   }
 })
 
-// seasons.get('/', async (req, res) => {
-//   try {
-//     const seasons = await Season.findAll()
-//     res.status(200).json(seasons)
-//   } catch (error) {
-//     res.status(400).json({
-//       status: 'error',
-//       message: 'Invalid request'
-//     })
-//   }
-// })
-
 seasons.post(
   '/mydraftpick/:SeasonUuid/:TeamUuid/:UserUuid',
   async (req, res) => {
@@ -125,22 +102,5 @@ seasons.post('/', async (req, res) => {
     res.status(422).json(err)
   }
 })
-
-// seasons.put('/:uuid', async (req, res) => {
-//   const uuid = req.params.uuid
-//   const { team1, team2 } = req.body
-//   try {
-//     const seasons = await Season.update(
-//       {
-//         team1,
-//         team2
-//       },
-//       { where: { uuid } }
-//     )
-//     res.status(201).json(seasons)
-//   } catch (err) {
-//     res.status(422).json(err)
-//   }
-// })
 
 module.exports = seasons
