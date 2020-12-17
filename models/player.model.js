@@ -16,12 +16,24 @@ const Player = sequelizeInstance.define('Player', {
   ptsBeg: Sequelize.FLOAT,
   ptsMin: Sequelize.FLOAT,
   ptsMax: Sequelize.FLOAT,
+  ptsTraining: {
+    type: Sequelize.FLOAT,
+    defaultValue: 50
+  },
   rebBeg: Sequelize.FLOAT,
   rebMin: Sequelize.FLOAT,
   rebMax: Sequelize.FLOAT,
+  rebTraining: {
+    type: Sequelize.FLOAT,
+    defaultValue: 50
+  },
   pasBeg: Sequelize.FLOAT,
   pasMin: Sequelize.FLOAT,
   pasMax: Sequelize.FLOAT,
+  pasTraining: {
+    type: Sequelize.FLOAT,
+    defaultValue: 50
+  },
   blkMin: Sequelize.FLOAT,
   blkMax: Sequelize.FLOAT,
   stlMin: Sequelize.FLOAT,
