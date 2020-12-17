@@ -33,6 +33,10 @@ const putProgressValuePerGame = async (UserUuid) => {
         ((stlMin + stlMax) / 2) * 14 +
         valueAdjust
 
+      const ptsMulti = player.ptsTraining / 50
+      const rebMulti = player.rebTraining / 50
+      const pasMulti = player.pasTraining / 50
+
       try {
         const res = await Player.update(
           {
@@ -40,11 +44,11 @@ const putProgressValuePerGame = async (UserUuid) => {
               player.age < 28 &&
               player.potential > player.value &&
               player.potential <= 93
-                ? player.ptsMax + 0.3
+                ? player.ptsMax + 0.3 * ptsMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
-                ? player.ptsMax + 0.6
+                ? player.ptsMax + 0.6 * ptsMulti
                 : player.age > 33
                 ? player.ptsMax - 0.3
                 : player.ptsMax,
@@ -52,11 +56,11 @@ const putProgressValuePerGame = async (UserUuid) => {
               player.age < 28 &&
               player.potential > player.value &&
               player.potential <= 93
-                ? player.rebMin + 0.1
+                ? player.rebMin + 0.1 * rebMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
-                ? player.rebMin + 0.2
+                ? player.rebMin + 0.2 * rebMulti
                 : player.age > 33
                 ? player.rebMin - 0.1
                 : player.rebMin,
@@ -64,11 +68,11 @@ const putProgressValuePerGame = async (UserUuid) => {
               player.age < 28 &&
               player.potential > player.value &&
               player.potential <= 93
-                ? player.rebMax + 0.1
+                ? player.rebMax + 0.1 * rebMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
-                ? player.rebMax + 0.2
+                ? player.rebMax + 0.2 * rebMulti
                 : player.age > 33
                 ? player.rebMax - 0.1
                 : player.rebMax,
@@ -76,11 +80,11 @@ const putProgressValuePerGame = async (UserUuid) => {
               player.age < 28 &&
               player.potential > player.value &&
               player.potential <= 93
-                ? player.pasMin + 0.1
+                ? player.pasMin + 0.1 * pasMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
-                ? player.pasMin + 0.2
+                ? player.pasMin + 0.2 * pasMulti
                 : player.age > 33
                 ? player.pasMin - 0.1
                 : player.pasMin,
@@ -136,11 +140,11 @@ const putProgressValuePerGame = async (UserUuid) => {
               player.age < 28 &&
               player.potential > player.value &&
               player.potential <= 93
-                ? player.pasMax + 0.1
+                ? player.pasMax + 0.1 * pasMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
-                ? player.pasMax + 0.2
+                ? player.pasMax + 0.2 * pasMulti
                 : player.age > 33
                 ? player.pasMax - 0.1
                 : player.pasMax,
@@ -148,11 +152,11 @@ const putProgressValuePerGame = async (UserUuid) => {
               player.age < 28 &&
               player.potential > player.value &&
               player.potential <= 93
-                ? player.ptsMin + 0.3
+                ? player.ptsMin + 0.3 * ptsMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
-                ? player.ptsMin + 0.6
+                ? player.ptsMin + 0.6 * ptsMulti
                 : player.age > 33
                 ? player.ptsMin - 0.3
                 : player.ptsMin,

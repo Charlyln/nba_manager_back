@@ -15,7 +15,7 @@ const trophiesCreation = async (uuid) => {
     isViewed: false
   })
   await Trophy.create({
-    name: 'Increase a player stat',
+    name: 'Use a training camp',
     difficulty: 2,
     earned: false,
     UserUuid: uuid,

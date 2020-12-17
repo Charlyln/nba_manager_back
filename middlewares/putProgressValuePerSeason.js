@@ -34,6 +34,10 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
         multiplicatorIfPotential = 1
       }
 
+      const ptsMulti = player.ptsTraining / 50
+      const rebMulti = player.rebTraining / 50
+      const pasMulti = player.pasTraining / 50
+
       try {
         const res = await Player.update(
           {
@@ -42,12 +46,18 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
               player.potential > player.value &&
               player.potential <= 93
                 ? player.ptsMax +
-                  0.3 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.3 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    ptsMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
                 ? player.ptsMax +
-                  0.6 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.6 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    ptsMulti
                 : player.age > 33
                 ? player.ptsMax -
                   0.3 * multiplicatorGameLength * multiplicatorIfPotential
@@ -57,12 +67,18 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
               player.potential > player.value &&
               player.potential <= 93
                 ? player.rebMin +
-                  0.1 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.1 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    rebMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
                 ? player.rebMin +
-                  0.2 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.2 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    rebMulti
                 : player.age > 33
                 ? player.rebMin -
                   0.1 * multiplicatorGameLength * multiplicatorIfPotential
@@ -72,12 +88,18 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
               player.potential > player.value &&
               player.potential <= 93
                 ? player.rebMax +
-                  0.1 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.1 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    rebMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
                 ? player.rebMax +
-                  0.2 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.2 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    rebMulti
                 : player.age > 33
                 ? player.rebMax -
                   0.1 * multiplicatorGameLength * multiplicatorIfPotential
@@ -87,12 +109,18 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
               player.potential > player.value &&
               player.potential <= 93
                 ? player.pasMin +
-                  0.1 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.1 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    pasMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
                 ? player.pasMin +
-                  0.2 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.2 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    pasMulti
                 : player.age > 33
                 ? player.pasMin -
                   0.1 * multiplicatorGameLength * multiplicatorIfPotential
@@ -162,12 +190,18 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
               player.potential > player.value &&
               player.potential <= 93
                 ? player.pasMax +
-                  0.1 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.1 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    pasMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
                 ? player.pasMax +
-                  0.2 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.2 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    pasMulti
                 : player.age > 33
                 ? player.pasMax -
                   0.1 * multiplicatorGameLength * multiplicatorIfPotential
@@ -177,12 +211,18 @@ const putProgressValuePerSeason = async (UserUuid, SeasonUuid) => {
               player.potential > player.value &&
               player.potential <= 93
                 ? player.ptsMin +
-                  0.3 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.3 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    ptsMulti
                 : player.age < 28 &&
                   player.potential > player.value &&
                   player.potential > 93
                 ? player.ptsMin +
-                  0.6 * multiplicatorGameLength * multiplicatorIfPotential
+                  0.6 *
+                    multiplicatorGameLength *
+                    multiplicatorIfPotential *
+                    ptsMulti
                 : player.age > 33
                 ? player.ptsMin -
                   0.3 * multiplicatorGameLength * multiplicatorIfPotential
