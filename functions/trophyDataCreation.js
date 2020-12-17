@@ -62,6 +62,14 @@ const trophiesCreation = async (uuid) => {
     color: 'bronze',
     isViewed: false
   })
+  await Trophy.create({
+    name: 'You have the MVP of the season',
+    difficulty: 8,
+    earned: false,
+    UserUuid: uuid,
+    color: 'gold',
+    isViewed: false
+  })
 }
 
 module.exports = trophyDataCreation
