@@ -5,8 +5,8 @@ const Game = require('../models/game.model')
 const PlayerStats = require('../models/playersStats.model')
 const Player = require('../models/player.model')
 const Team = require('../models/team.model')
-const getStatsHistory = require('../middlewares/getStatsHistory')
-const getMyDraftPick = require('../middlewares/getMyDraftPick')
+const getStatsHistory = require('../functions/getStatsHistory')
+const getMyDraftPick = require('../functions/getMyDraftPick')
 
 // include: [
 //   { model: Likes },

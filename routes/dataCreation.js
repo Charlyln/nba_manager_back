@@ -1,10 +1,10 @@
 const express = require('express')
 const dataCreation = express.Router()
-const dataCreationFunction = require('../middlewares/dataCreation')
-const gamesDataCreation = require('../middlewares/gamesCreation')
-const GamesDataCreation2 = require('../middlewares/gamesCreation2')
-const GamesDataCreationNewSeason = require('../middlewares/GamesDataCreationNewSeason')
-const trophyDataCreation = require('../middlewares/trophyDataCreation')
+const dataCreationFunction = require('../functions/dataCreation')
+const gamesDataCreation = require('../functions/gamesCreation')
+const GamesDataCreation2 = require('../functions/gamesCreation2')
+const GamesDataCreationNewSeason = require('../functions/GamesDataCreationNewSeason')
+const trophyDataCreation = require('../functions/trophyDataCreation')
 
 dataCreation.post('/:uuid', async (req, res) => {
   const { uuid } = req.params

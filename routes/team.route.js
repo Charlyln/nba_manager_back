@@ -6,8 +6,8 @@ const Player = require('../models/player.model')
 const PlayerStats = require('../models/playersStats.model')
 const Game = require('../models/game.model')
 const Visitor = require('../models/visitor.model')
-const putSalaryCapLeft = require('../middlewares/putSalaryCapLeft')
-const getSeasonCharts = require('../middlewares/getSeasonCharts')
+const putSalaryCapLeft = require('../functions/putSalaryCapLeft')
+const getSeasonCharts = require('../functions/getSeasonCharts')
 
 teams.get('/', async (req, res) => {
   try {

@@ -1,9 +1,9 @@
 const express = require('express')
 const gamesPlayed = express.Router()
-const gamePlayed = require('../middlewares/gamePlayed')
-const allGamePlayed = require('../middlewares/allGamePlayed')
-const twoGamePlayed = require('../middlewares/twoGamePlayed')
-const putProgressValuePerGame = require('../middlewares/putProgressValuePerGame')
+const gamePlayed = require('../functions/gamePlayed')
+const allGamePlayed = require('../functions/allGamePlayed')
+const twoGamePlayed = require('../functions/twoGamePlayed')
+const putProgressValuePerGame = require('../functions/putProgressValuePerGame')
 
 gamesPlayed.post('/:uuid/:SeasonUuid/:TeamUuid/:UserUuid', async (req, res) => {
   const { uuid, SeasonUuid, TeamUuid, UserUuid } = req.params

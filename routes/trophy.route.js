@@ -1,6 +1,6 @@
 const express = require('express')
-const viewedTrophy = require('../middlewares/viewedTrophy')
-const earnedTrophy = require('../middlewares/earnedTrophy')
+const viewedTrophy = require('../functions/viewedTrophy')
+const earnedTrophy = require('../functions/earnedTrophy')
 const trophies = express.Router()
 const Trophy = require('../models/trophy.model')
 

@@ -2,7 +2,7 @@ const express = require('express')
 const users = express.Router()
 const User = require('../models/user.model')
 const Trophy = require('../models/trophy.model')
-const getMulitpledata = require('../middlewares/getMulitpledata')
+const getMulitpledata = require('../functions/getMulitpledata')
 
 users.get('/', async (req, res) => {
   try {
