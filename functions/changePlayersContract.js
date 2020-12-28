@@ -28,11 +28,14 @@ const changePlayersContract = async (UserUuid) => {
             },
             { where: { uuid: player.uuid } }
           )
+          return res
         } catch (err) {
           console.log(err)
         }
       })
   )
+
+  return results
 }
 
 module.exports = changePlayersContract
