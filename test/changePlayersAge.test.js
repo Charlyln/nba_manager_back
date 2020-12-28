@@ -38,9 +38,7 @@ describe('PLAYERS', () => {
         res.should.have.status(201)
         res.body.should.be.a('array')
         res.body.length.should.be.eql(61)
-        // res.body.should.all.be.eql([1])
-        // expect(res.body).to.have.all.keys([1])
-        // console.log(res.body)
+        expect(res.body.length).to.not.equal(0)
       } catch (err) {
         throw err
       }
