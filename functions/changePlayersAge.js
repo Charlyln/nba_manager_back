@@ -7,7 +7,7 @@ const changePlayersAge = async (UserUuid) => {
     }
   })
 
-  let results = Promise.all(
+  return Promise.all(
     players.map(async (player) => {
       try {
         const res = await Player.update(
@@ -16,6 +16,7 @@ const changePlayersAge = async (UserUuid) => {
           },
           { where: { uuid: player.uuid } }
         )
+        return res
       } catch (err) {
         console.log(err)
       }
