@@ -7,7 +7,7 @@ const adjustPlayerValue = async (UserUuid) => {
     }
   })
 
-  let results = Promise.all(
+  return Promise.all(
     players.map(async (player) => {
       const {
         ptsMax,
@@ -38,6 +38,7 @@ const adjustPlayerValue = async (UserUuid) => {
           },
           { where: { uuid: player.uuid } }
         )
+        return res
       } catch (err) {
         console.log(err)
       }

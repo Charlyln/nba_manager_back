@@ -20,7 +20,7 @@ Visitor.belongsTo(User)
 User.hasMany(Game, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Game.belongsTo(User)
 
-Team.hasMany(Player, { foreignKey: { allowNull: true } })
+Team.hasMany(Player, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Player.belongsTo(Team)
 
 Team.hasMany(Visitor, { foreignKey: { allowNull: false } })
