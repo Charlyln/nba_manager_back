@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express')
 const sequelize = require('./sequelize')
 const users = require('./routes/users.routes')
@@ -56,3 +57,5 @@ async function main() {
 }
 
 main()
+
+module.exports = app
