@@ -47,7 +47,7 @@ progress.post('/season/:UserUuid/:SeasonUuid', async (req, res) => {
   }
 })
 
-progress.post('/adjsutPlayerValue/:UserUuid', async (req, res) => {
+progress.post('/adjustPlayerValue/:UserUuid', async (req, res) => {
   const { UserUuid } = req.params
   try {
     const progress = await adjustPlayerValue(UserUuid)
