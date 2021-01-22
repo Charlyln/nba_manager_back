@@ -7,12 +7,16 @@ const PlayerStats = require('./playersStats.model')
 const Season = require('./season.model')
 const Trophy = require('./trophy.model')
 const Progress = require('./progress.model')
+const Role = require('./role.model')
 
 User.hasMany(Team, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Team.belongsTo(User)
 
 User.hasMany(Player, { foreignKey: { allowNull: true }, onDelete: 'cascade' })
 Player.belongsTo(User)
+
+Role.hasMany(User, { foreignKey: { allowNull: false } })
+User.belongsTo(Role, { foreignKey: { allowNull: false } })
 
 User.hasMany(Visitor, { foreignKey: { allowNull: false }, onDelete: 'cascade' })
 Visitor.belongsTo(User)
