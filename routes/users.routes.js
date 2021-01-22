@@ -1,13 +1,63 @@
+require('dotenv').config()
 const express = require('express')
 const users = express.Router()
 const User = require('../models/user.model')
 const Trophy = require('../models/trophy.model')
+const Role = require('../models/role.model')
+const { SECRET } = process.env
+const jwt = require('jsonwebtoken')
 const getMulitpledata = require('../functions/getMulitpledata')
+const authRole = require('../middlewares/authRole')
+const Team = require('../models/team.model')
+const Game = require('../models/game.model')
+const Season = require('../models/season.model')
+const Player = require('../models/player.model')
+const getAdminData = require('../functions/getAdminData')
 
-users.get('/', async (req, res) => {
+users.get('/', authRole('ADMIN'), async (req, res) => {
   try {
-    const users = await User.findAll()
+    const users = await User.findAll({
+      include: [
+        {
+          model: Trophy
+        },
+        {
+          model: Team
+        },
+        {
+          model: Game
+        },
+        {
+          model: Season
+        }
+      ]
+    })
     res.status(200).json(users)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
+users.get('/admin', authRole('ADMIN'), async (req, res) => {
+  try {
+    const users = await getAdminData()
+    res.status(200).json(users)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
+users.post('/checkPseudo', async (req, res) => {
+  const { pseudo } = req.body
+  try {
+    const users = await User.findAll({ attributes: ['pseudo'] })
+    const userFind = users.find((user) => user.pseudo === pseudo)
+
+    if (userFind) {
+      res.status(200).json(true)
+    } else {
+      res.status(200).json(false)
+    }
   } catch (err) {
     res.status(400).json(err)
   }
@@ -53,12 +103,80 @@ users.get('/account/:uuid', async (req, res) => {
 })
 
 users.post('/', async (req, res) => {
-  const { pseudo } = req.body
+  const { pseudo, password, RoleUuid } = req.body
   try {
     const user = await User.create({
-      pseudo
+      pseudo,
+      password,
+      RoleUuid
     })
     res.status(201).json(user)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
+users.post('/login', async (req, res) => {
+  const { pseudo, password } = req.body
+  try {
+    const user = await User.findOne({
+      where: {
+        pseudo
+      },
+      include: [
+        {
+          model: Role
+        },
+        {
+          model: Team
+        }
+      ]
+    })
+    const isPasswordValid = user.validPassword(password)
+
+    if (user && isPasswordValid) {
+      const payload = {
+        uuid: user.dataValues.uuid,
+        pseudo: user.dataValues.pseudo,
+        role: user.dataValues.Role.name
+      }
+
+      const token = jwt.sign(payload, SECRET, {
+        expiresIn: '24h'
+      })
+      delete user.dataValues.password
+
+      if (user.Role.name === 'ADMIN') {
+        res.status(200).json({ token, user })
+      } else {
+        const team = user.Teams.find((team) => team.choice === true)
+
+        const TeamUuid = team.uuid
+
+        const userSeason = await User.findOne({
+          where: {
+            uuid: user.uuid
+          },
+          include: [
+            {
+              model: Season
+            }
+          ]
+        })
+
+        const seasonSorted = userSeason.Seasons.sort(function (a, b) {
+          return new Date(Number(b.endYear)) - new Date(Number(a.endYear))
+        })
+
+        const SeasonUuid = seasonSorted[0].uuid
+
+        res.status(200).json({ token, user, TeamUuid, SeasonUuid })
+      }
+    } else {
+      res.status(422).json({ message: 'Wrong credentials', error: err.errors })
+    }
+
+    // res.status(200).json({ user, isPasswordValid })
   } catch (err) {
     res.status(422).json(err)
   }
