@@ -14,6 +14,7 @@ const getMyRookies = require('../functions/getMyRookies')
 const putResignPlayers = require('../functions/putResignPlayers')
 const putUpdateStatsBeg = require('../functions/putUpdateStatsBeg')
 const putRookies = require('../functions/putRookies')
+const authRole = require('../middlewares/authRole')
 
 players.get('/', async (req, res) => {
   try {
@@ -74,7 +75,7 @@ players.get('/:UserUuid', async (req, res) => {
   }
 })
 
-players.get('/bestPlayers/:UserUuid/:SeasonUuid', async (req, res) => {
+players.get('/bestPlayers/:UserUuid/:SeasonUuid', authRole('USER'), async (req, res) => {
   const { UserUuid, SeasonUuid } = req.params
   try {
     const bestPlayers = await getBestPlayers(UserUuid, SeasonUuid)
