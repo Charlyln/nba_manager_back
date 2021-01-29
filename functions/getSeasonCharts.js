@@ -49,10 +49,10 @@ const getSeasonCharts = async (UserUuid, TeamUuid, SeasonUuid) => {
     })
 
   const ptsArray = team.Players.map((player) => {
-    const statArray = player.PlayerStats.map((stat) => stat)
-
     const finalArray = gamesFiltered.map((game) => {
-      const statFind = statArray.find((stat) => stat.GameUuid === game.uuid)
+      const statFind = player.PlayerStats.find(
+        (stat) => stat.GameUuid === game.uuid
+      )
 
       if (statFind) {
         return statFind.pts
