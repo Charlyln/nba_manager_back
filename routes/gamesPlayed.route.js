@@ -4,9 +4,12 @@ const gamePlayed = require('../functions/gamePlayed')
 const allGamePlayed = require('../functions/allGamePlayed')
 const twoGamePlayed = require('../functions/twoGamePlayed')
 const putProgressValuePerGame = require('../functions/putProgressValuePerGame')
+const authRole = require('../middlewares/authRole')
 
-gamesPlayed.post('/:uuid/:SeasonUuid/:TeamUuid/:UserUuid', async (req, res) => {
-  const { uuid, SeasonUuid, TeamUuid, UserUuid } = req.params
+gamesPlayed.post('/:uuid', authRole('USER'), async (req, res) => {
+  const { uuid } = req.params
+
+  const { SeasonUuid, TeamUuid, UserUuid } = req.body
 
   try {
     const test = await gamePlayed(uuid)
