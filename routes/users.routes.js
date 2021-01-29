@@ -105,6 +105,11 @@ users.get('/account/:uuid', async (req, res) => {
 users.post('/', async (req, res) => {
   const { pseudo, password, RoleUuid } = req.body
   try {
+    if (!pseudo || !password || !RoleUuid) {
+      res.status(422).json({
+        message: 'some keys are missing'
+      })
+    }
     const user = await User.create({
       pseudo,
       password,
