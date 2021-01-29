@@ -164,6 +164,19 @@ const gamePlayed = async (uuid) => {
       { where: { uuid: gameId1 } }
     )
   }
+
+  const gameReturn = await Game.findOne({
+    where: {
+      uuid
+    },
+    include: [
+      {
+        model: PlayerStats
+      }
+    ]
+  })
+
+  return gameReturn
 }
 
 module.exports = gamePlayed
