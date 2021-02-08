@@ -187,6 +187,35 @@ users.post('/login', async (req, res) => {
   }
 })
 
+users.get('/getToken/:uuid', async (req, res) => {
+  const { uuid } = req.params
+  try {
+    const user = await User.findOne({
+      where: {
+        uuid
+      },
+      include: [
+        {
+          model: Role
+        }
+      ]
+    })
+    const payload = {
+      uuid: user.dataValues.uuid,
+      pseudo: user.dataValues.pseudo,
+      role: user.dataValues.Role.name
+    }
+
+    const token = jwt.sign(payload, SECRET, {
+      expiresIn: '24h'
+    })
+
+    res.status(200).json(token)
+  } catch (err) {
+    res.status(422).json(err)
+  }
+})
+
 users.post('/mulitpledata/:UserUuid', async (req, res) => {
   const { UserUuid } = req.params
   const { TeamUuid, SeasonUuid } = req.body
