@@ -65,6 +65,21 @@ seasons.get('/myseason/:uuid', async (req, res) => {
   }
 })
 
+seasons.get('/date/:uuid', async (req, res) => {
+  const { uuid } = req.params
+  try {
+    const season = await Season.findOne({
+      where: {
+        uuid
+      },
+      attributes: ['startYear']
+    })
+    res.status(200).json(season)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
 seasons.get('/history/:UserUuid/:SeasonUuid', async (req, res) => {
   const { UserUuid, SeasonUuid } = req.params
   try {
